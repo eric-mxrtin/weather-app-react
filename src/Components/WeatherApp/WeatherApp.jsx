@@ -27,11 +27,18 @@ export const WeatherApp = () => {
     const wind =document.getElementsByClassName("wind-rate");
     const temperature =document.getElementsByClassName("weather-temp");
     const location =document.getElementsByClassName("weather-location");
+    const temp_high =document.getElementsByClassName("weather-temp-high");
+    const temp_low =document.getElementsByClassName("weather-temp-low");
+    const cloudiness =document.getElementsByClassName("cloudiness");
+
 
     humidity[0].innerHTML = data.main.humidity + " %";
     wind[0].innerHTML = Math.round(data.wind.speed) + " km/h";
     temperature[0].innerHTML = Math.round(data.main.temp * 10) / 10 + "°C";
     location[0].innerHTML = data.name;
+    temp_high[0].innerHTML = Math.round(data.main.temp_max) + "°C";
+    temp_low[0].innerHTML = Math.round(data.main.temp_min) + "°C";
+    cloudiness[0].innerHTML = Math.round(data.clouds.all) + "%";
 
     if(data.weather[0].icon == "01d" || data.weather[0].icon  == "01n")
     {
@@ -94,7 +101,30 @@ export const WeatherApp = () => {
               <div className="text">Wind Speed</div>
             </div>
           </div>
+          <div className="element">
+            <img src={wind_icon} alt="" className="icon" />
+            <div className="data">
+              <div className="weather-temp-low">18</div>
+              <div className="text">Min</div>
+            </div>
+          </div>
+          <div className="element">
+            <img src={wind_icon} alt="" className="icon" />
+            <div className="data">
+              <div className="weather-temp-high">18</div>
+              <div className="text">Max</div>
+            </div>
+          </div>
+          <div className="element">
+            <img src={wind_icon} alt="" className="icon" />
+            <div className="data">
+              <div className="cloudiness">10 %</div>
+              <div className="text">Clouds</div>
+            </div>
+          </div>
         </div>
+      <div className="blur-circle top"></div>
+      <div className="blur-circle bottom"></div>
     </div>
   )
 }

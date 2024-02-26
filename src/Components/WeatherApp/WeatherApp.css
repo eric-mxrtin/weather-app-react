@@ -1,10 +1,12 @@
 .container {
-  width: 607px;
-  height: 829px;
+  width: 430px;
+  height: 932px;
+  padding: 24px;
   margin: auto;
   margin-top: 75px;
   border-radius: 12px;
-  background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%);
+  background-color: rgb(242,239,229);
+  position: relative;
 }
 
 .top-bar {
@@ -39,6 +41,19 @@
   cursor: pointer;
 }
 
+.blur-circle
+{
+  background-color: white;
+  height: 350px;
+  width: 350px;
+  position: absolute;
+  z-index: 0;
+  top: 0px;
+  left: 0px;
+  border-radius: 100%;
+  filter: blur(5rem);
+}
+
 .weather-image{
   margin-top: 29px;
   display: flex;
@@ -65,7 +80,10 @@
   margin-top: 50px;
   color: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 15px;
+  overflow: visible;
 }
 
 .element{
