@@ -10,6 +10,8 @@
   color: #3D3B40;
   background-color: #F2EFE5;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .top-container {
@@ -30,24 +32,68 @@
   justify-content: center;
 }
 
+.location-container .icon 
+{
+  height: 50px;
+  width: 50px;
+}
+
 .location-container .subcontainer {
   display: flex;
   gap: 10px;
 }
 
+.location-container .subcontainer .title{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.location-container .subcontainer .pin{
+  height: 24px;
+  width: 24px;
+}
+
+.location-container .date 
+{
+  font-weight: 400;
+  font-size: 12px;
+}
+
+
+
 .bottom-container {
   height: 632px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .affirmation-container {
-  width: 630px;
-  height: 400px;
+  position: absolute;
+  bottom: -100px;
+  width: 609px;
+  height: 271px;
   border-radius: 50%;
   background-color: #3D3B40;
 }
 
+.affirmation-container .subcontainer 
+{
+  padding-top: 77px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .affirmation-container .value {
   color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.affirmation-container .icon {
+  width: 14px;
+  height: 14px;
 }
 
 .current-temp {
@@ -71,16 +117,22 @@
   justify-content: center;
 }
 
+.min-max 
+{
+  font-size: 18px;
+}
+
 .stats-container {
   background-color: #FFFFFF;
   border-radius: 50px;
+  width: 356px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 24px;
   flex-basis: 0px;
-  margin: 0px 24px;
-  padding: 20px;
+  margin: 0px 20px;
+  padding: 10px;
   height: auto;
 }
 
@@ -91,8 +143,8 @@
 }
 
 .stats-element .icon {
-  width: 50px;
-  height: 50px;
+  width: 32px;
+  height: 32px;
 }
 
 .stats-element .value {
@@ -102,13 +154,14 @@
 
 .stats-element .title {
   font-weight: 400;
-  font-size: 9;
+  font-size: 9px;
 }
 
 .forecast-container {
   display: flex;
+  gap: 12px;
   flex-direction: row;
-  background-color: rgba(255,235,163,60%);
+  background-color: rgba(227, 225, 217, 45%);
   border-radius: 20px;
   margin: 0px 20px;
   padding: 10px;
@@ -123,12 +176,17 @@
 .forecast-container .subcontainer {
   background-color: white;
   border-radius: 15px;
-  padding: 15px;
+  padding: 12px;
 }
 
 .forecast-container .subcontainer .value{
   font-weight: 600;
   font-size: 24px;
+}
+
+.forecast-container .subcontainer .icon{
+  width: 36px;
+  height: 28px;
 }
 
 .top-bar {
