@@ -1,3 +1,4 @@
+// asset and styling imports
 import React, { useState } from 'react'
 import './WeatherApp.css'
 import search_icon from '../Assets/search.png'
@@ -75,6 +76,85 @@ export const WeatherApp = () => {
   }
   return (
     <div className="container">
+      <div className="top-container">
+        <img src="Assets/cloud.png" className="menu"></img>
+        <div className="location-container">
+          <div className="subcontainer">
+            <img src="Assets/cloud.png" className="menu"></img>
+            <div className="title">Location</div>
+          </div>
+          <div className="date">Saturday, February 24, 2024</div>
+        </div>
+        <img src="Assets/cloud.png" className="menu"></img>
+      </div>
+      <div className="bottom-container">
+        <div className="current-temp">22 </div>
+        <div className="feels-like">Feels like 21</div>
+        <img src="Assets/cloud.png" className="main-weather-icon"></img>
+        <div className="current-weather">Partly Cloudy</div>
+        <div className="min-max-container">
+          <div className="min-max">High: 24</div>
+          <div className="min-max">Low: 19</div>
+        </div>
+        <div className="stats-container">
+          <div className="stats-element">
+            <img className="icon" src="Assets/cloud.png"></img>
+            <div className="value">30 %</div>
+            <div className="title">Precipitation</div>
+          </div>
+          <div className="stats-element">
+            <img className="icon" src="Assets/cloud.png"></img>
+            <div className="value">20 %</div>
+            <div className="title">Humidity</div>
+          </div>
+          <div className="stats-element">
+            <img className="icon" src="Assets/cloud.png"></img>
+            <div className="value">10 km/h</div>
+            <div className="title">Wind Speed</div>
+          </div>
+        </div>
+        <div className="forecast-container">
+          <div className="element">
+            <div className="title">TOM</div>
+            <div className="subcontainer">
+              <img src="Assets/cloud.png" className="icon"></img>
+              <div className="value">22</div>
+            </div>
+          </div>
+          <div className="element">
+            <div className="title">MON</div>
+            <div className="subcontainer">
+              <img src="Assets/cloud.png" className="icon"></img>
+              <div className="value">14</div>
+            </div>
+          </div>
+          <div className="element">
+            <div className="title">TUE</div>
+            <div className="subcontainer">
+              <img src="Assets/cloud.png" className="icon"></img>
+              <div className="value">19</div>
+            </div>
+          </div>
+          <div className="element">
+            <div className="title">WED</div>
+            <div className="subcontainer">
+              <img src="Assets/cloud.png" className="icon"></img>
+              <div className="value">24</div>
+            </div>
+          </div>
+          <div className="element">
+            <div className="title">THU</div>
+            <div className="subcontainer">
+              <img src="Assets/cloud.png" className="icon"></img>
+              <div className="value">18</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="affirmation-container">
+        <div className="value">You look great today.</div>
+        <img src="Assets/cloud.png" className="icon"></img>
+      </div>
       <div className="top-bar">
         <input type="text" className="cityInput" placeholder="Search"></input>
         <div className="search-icon" onClick={()=>{search()}}>
