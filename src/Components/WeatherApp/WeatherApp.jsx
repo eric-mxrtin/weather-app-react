@@ -1,19 +1,16 @@
 // asset and styling imports
 import React, { useState } from 'react'
 import './WeatherApp.css'
-import search_icon from '../Assets/search.png'
-import clear_icon from '../Assets/clear.png'
-import cloud_icon from '../Assets/cloud.png'
-import drizzle_icon from '../Assets/drizzle.png'
-import rain_icon from '../Assets/rain.png'
-import snow_icon from '../Assets/snow.png'
-import wind_icon from '../Assets/wind.png'
-import humidity_icon from '../Assets/humidity.png';
+import search_icon from '../Assets/search.svg'
+import sunny_icon from '../Assets/sunny.png'
+import cloudy_icon from '../Assets/cloudy.png'
+import rainy_icon from '../Assets/rainy.png'
+import thunder_icon from '../Assets/thunder.png'
 
 export const WeatherApp = () => {
 
   let api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-  const [wicon, setWicon] = useState(cloud_icon);
+  const [wicon, setWicon] = useState(sunny_icon);
   const search = async () => {
     const element =document.getElementsByClassName("cityInput");
     if(element[0].value==="")
@@ -43,36 +40,34 @@ export const WeatherApp = () => {
 
     if(data.weather[0].icon == "01d" || data.weather[0].icon  == "01n")
     {
-      setWicon(clear_icon);
+      setWicon(sunny_icon);
     }
     else if(data.weather[0].icon == "02d" || data.weather[0].icon  == "02n")
     {
-      setWicon(cloud_icon);
+      setWicon(sunny_icon);
     }
     else if(data.weather[0].icon == "03d" || data.weather[0].icon  == "03n")
     {
-      setWicon(drizzle_icon);
+      setWicon(sunny_icon);
     }
     else if(data.weather[0].icon == "04d" || data.weather[0].icon  == "04n")
     {
-      setWicon(drizzle_icon);
+      setWicon(sunny_icon);
     }
     else if(data.weather[0].icon == "09d" || data.weather[0].icon  == "09n")
     {
-      setWicon(rain_icon);
+      setWicon(sunny_icon);
     }
     else if(data.weather[0].icon == "10d" || data.weather[0].icon  == "10n")
     {
-      setWicon(rain_icon);
+      setWicon(sunny_icon);
     }
     else if(data.weather[0].icon == "13d" || data.weather[0].icon  == "13n")
     {
-      setWicon(snow_icon);
-    }
+      setWicon(sunny_icon);    }
     else
     {
-      setWicon(clear_icon);
-    }
+      setWicon(sunny_icon);    }
   }
   return (
     <div className="container">
