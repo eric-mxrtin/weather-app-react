@@ -77,18 +77,18 @@ export const WeatherApp = () => {
   return (
     <div className="container">
       <div className="top-container">
-        <img src="Assets/cloud.png" className="menu"></img>
+        <img src="Assets/cloud.png" className="icon"></img>
         <div className="location-container">
           <div className="subcontainer">
-            <img src="Assets/cloud.png" className="menu"></img>
+            <img src="Assets/cloud.png" className="pin"></img>
             <div className="title">Location</div>
           </div>
           <div className="date">Saturday, February 24, 2024</div>
         </div>
-        <img src="Assets/cloud.png" className="menu"></img>
+        <img src="Assets/cloud.png" className="icon"></img>
       </div>
       <div className="bottom-container">
-        <div className="current-temp">22 </div>
+        <div className="current-temp">22</div>
         <div className="feels-like">Feels like 21</div>
         <img src="Assets/cloud.png" className="main-weather-icon"></img>
         <div className="current-weather">Partly Cloudy</div>
@@ -99,12 +99,12 @@ export const WeatherApp = () => {
         <div className="stats-container">
           <div className="stats-element">
             <img className="icon" src="Assets/cloud.png"></img>
-            <div className="value">30 %</div>
+            <div className="value">30%</div>
             <div className="title">Precipitation</div>
           </div>
           <div className="stats-element">
             <img className="icon" src="Assets/cloud.png"></img>
-            <div className="value">20 %</div>
+            <div className="value">20%</div>
             <div className="title">Humidity</div>
           </div>
           <div className="stats-element">
@@ -150,59 +150,13 @@ export const WeatherApp = () => {
             </div>
           </div>
         </div>
+        <div className="affirmation-container">
+          <div className="subcontainer">
+            <div className="value">You look great today.</div>
+            <img src="Assets/cloud.png" className="icon"></img>
+          </div>
+         </div>
       </div>
-      <div className="affirmation-container">
-        <div className="value">You look great today.</div>
-        <img src="Assets/cloud.png" className="icon"></img>
-      </div>
-      <div className="top-bar">
-        <input type="text" className="cityInput" placeholder="Search"></input>
-        <div className="search-icon" onClick={()=>{search()}}>
-          <img src={search_icon} alt=""/>
-        </div>
-      </div>
-      <div className="weather-image">
-          <img src={wicon} className="weather-icon" alt=""/>
-      </div>
-      <div className="weather-temp">24 C</div>
-      <div className="weather-location">London</div>
-      <div className="data-container">
-          <div className="element">
-            <img src={humidity_icon} alt="" className="icon" />
-            <div className="data">
-              <div className="humidity-percent">64%</div>
-              <div className="text">Humidity</div>
-            </div>
-          </div>
-          <div className="element">
-            <img src={wind_icon} alt="" className="icon" />
-            <div className="data">
-              <div className="wind-rate">18 km/h</div>
-              <div className="text">Wind Speed</div>
-            </div>
-          </div>
-          <div className="element">
-            <img src={wind_icon} alt="" className="icon" />
-            <div className="data">
-              <div className="weather-temp-low">18</div>
-              <div className="text">Min</div>
-            </div>
-          </div>
-          <div className="element">
-            <img src={wind_icon} alt="" className="icon" />
-            <div className="data">
-              <div className="weather-temp-high">18</div>
-              <div className="text">Max</div>
-            </div>
-          </div>
-          <div className="element">
-            <img src={wind_icon} alt="" className="icon" />
-            <div className="data">
-              <div className="cloudiness">10 %</div>
-              <div className="text">Clouds</div>
-            </div>
-          </div>
-        </div>
       <div className="blur-circle top"></div>
       <div className="blur-circle bottom"></div>
     </div>
