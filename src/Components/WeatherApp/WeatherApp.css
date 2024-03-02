@@ -27,9 +27,14 @@ div
   gap: 40px;
 }
 
+.top-container .icon{
+  height: 36px;
+  width: 36px;
+}
+
 .location-container {
   background-color: white;
-  padding: 20px;
+  padding: 6px 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -37,25 +42,21 @@ div
   justify-content: center;
 }
 
-.location-container .icon 
-{
-  height: 50px;
-  width: 50px;
-}
-
 .location-container .subcontainer {
   display: flex;
-  gap: 10px;
+  gap: 2px;
+  align-items: center;
+}
+
+.location-container .subcontainer .icon 
+{
+  height: 24px;
+  width: 24px;
 }
 
 .location-container .subcontainer .title{
   font-weight: 700;
   font-size: 18px;
-}
-
-.location-container .subcontainer .pin{
-  height: 24px;
-  width: 24px;
 }
 
 .location-container .date 
@@ -293,8 +294,4 @@ div
 .text{
   font-size: 20px;
   font-weight: 400;
-}
-
-.icon{
-  margin-top: 10px;
 }
