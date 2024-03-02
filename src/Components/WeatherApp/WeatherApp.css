@@ -74,34 +74,6 @@ div
   align-items: center;
 }
 
-.affirmation-container {
-  position: absolute;
-  bottom: -100px;
-  width: 609px;
-  height: 271px;
-  border-radius: 50%;
-  background-color: #3D3B40;
-}
-
-.affirmation-container .subcontainer 
-{
-  padding-top: 77px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.affirmation-container .value {
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.affirmation-container .icon {
-  width: 14px;
-  height: 14px;
-}
-
 .current-temp {
   font-size: 170px;
   font-weight: 700;
@@ -195,6 +167,36 @@ div
   height: 28px;
 }
 
+
+.affirmation-container {
+  position: absolute;
+  bottom: -100px;
+  width: 609px;
+  height: 271px;
+  border-radius: 50%;
+  background-color: #3D3B40;
+}
+
+.affirmation-container .subcontainer 
+{
+  padding-top: 77px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.affirmation-container .value {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.affirmation-container .icon {
+  height: 20px;
+  width: 20px;
+}
+
 .top-bar {
   display: flex;
   justify-content: center;
@@ -277,21 +279,4 @@ div
   justify-content: center;
   gap: 15px;
   overflow: visible;
-}
-
-.element{
-  margin: auto;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.data{
-  font-size: 34px;
-  font-weight: 400;
-}
-
-.text{
-  font-size: 20px;
-  font-weight: 400;
 }
