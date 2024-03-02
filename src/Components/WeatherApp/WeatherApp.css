@@ -106,11 +106,10 @@ div
   width: 356px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 24px;
+  justify-content: space-around;
   flex-basis: 0px;
   margin: 0px 20px;
-  padding: 10px;
+  padding: 12px;
   height: auto;
 }
 
@@ -131,7 +130,7 @@ div
 }
 
 .stats-element .title {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 9px;
 }
 
