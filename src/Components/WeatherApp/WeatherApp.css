@@ -65,8 +65,6 @@ div
   font-size: 12px;
 }
 
-
-
 .bottom-container {
   height: 632px;
   display: flex;
@@ -74,16 +72,31 @@ div
   align-items: center;
 }
 
+.current-temp-container {
+  position: relative;
+}
+
 .current-temp {
   font-size: 170px;
   font-weight: 700;
 }
 
+.main-weather-icon {
+  height: 160px;
+  width: auto;
+  position: absolute;
+  bottom: -36px;
+  right: -90px;
+}
+
 .feels-like {
   font-weight: 600;
+  font-size: 12px;
+  margin-top: -30px;
 }
 
 .current-weather {
+  margin-top: 30px;
   font-size: 44px;
   font-weight: 800;
 }
@@ -93,6 +106,7 @@ div
   flex-direction: row;
   gap: 24px;
   justify-content: center;
+  margin-bottom: 80px;
 }
 
 .min-max 
@@ -109,7 +123,7 @@ div
   justify-content: space-around;
   flex-basis: 0px;
   margin: 0px 20px;
-  padding: 12px;
+  padding: 16px 12px;
   height: auto;
 }
 
@@ -140,7 +154,7 @@ div
   flex-direction: row;
   background-color: rgba(227, 225, 217, 45%);
   border-radius: 20px;
-  margin: 0px 20px;
+  margin: 45px 20px;
   padding: 10px;
 }
 
@@ -162,8 +176,8 @@ div
 }
 
 .forecast-container .subcontainer .icon{
-  width: 36px;
-  height: 28px;
+  width: auto;
+  height: 28px
 }
 
 

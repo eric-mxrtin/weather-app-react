@@ -1,8 +1,22 @@
 // asset and styling imports
 import React, { useState } from 'react';
-import sunny_icon from '../Assets/sunny_icon.png';
-import './WeatherApp.css';
+import sunny_icon from '../Assets/forecast_icons/sunny.png';
+import cloudy_icon from '../Assets/forecast_icons/cloudy.png';
+import partly_cloudy_icon from '../Assets/forecast_icons/partly_cloudy.png';
+import rain_icon from '../Assets/forecast_icons/rain.png';
+import shower_rain_icon from '../Assets/forecast_icons/shower_rain.png';
+import thunderstorm_icon from '../Assets/forecast_icons/thunderstorm.png';
+import snow_icon from '../Assets/forecast_icons/snow.png';
 
+import main_sunny from '../Assets/main_icons/main_sunny.png';
+import main_cloudy from '../Assets/main_icons/main_cloudy.png';
+import main_partly_cloudy from '../Assets/main_icons/main_partly_cloudy.png';
+import main_rain from '../Assets/main_icons/main_rain.png';
+import main_shower_rain from '../Assets/main_icons/main_shower_rain.png';
+import main_thunderstorm from '../Assets/main_icons/main_thunderstorm.png';
+import main_snow from '../Assets/main_icons/main_snow.png';
+
+import './WeatherApp.css';
 
 export const WeatherApp = () => {
 
@@ -80,9 +94,11 @@ export const WeatherApp = () => {
         <svg className="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#3D3B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
       </div>
       <div className="bottom-container">
-        <div className="current-temp">22</div>
+        <div className="current-temp-container">
+          <div className="current-temp">22</div>
+          <img src={main_sunny} className="main-weather-icon" alt=" "></img>
+        </div>
         <div className="feels-like">Feels like 21&deg;</div>
-        <img src={sunny_icon} className="main-weather-icon" alt=" "></img>
         <div className="current-weather">Partly Cloudy</div>
         <div className="min-max-container">
           <div className="min-max">High: 24&deg;</div>
@@ -116,28 +132,28 @@ export const WeatherApp = () => {
           <div className="element">
             <div className="title">MON</div>
             <div className="subcontainer">
-              <img src={sunny_icon} className="icon" alt=" "></img>
+              <img src={cloudy_icon} className="icon" alt=" "></img>
               <div className="value">14</div>
             </div>
           </div>
           <div className="element">
             <div className="title">TUE</div>
             <div className="subcontainer">
-              <img src={sunny_icon} className="icon" alt=" "></img>
+              <img src={rain_icon} className="icon" alt=" "></img>
               <div className="value">19</div>
             </div>
           </div>
           <div className="element">
             <div className="title">WED</div>
             <div className="subcontainer">
-              <img src={sunny_icon} className="icon" alt=" "></img>
+              <img src={shower_rain_icon} className="icon" alt=" "></img>
               <div className="value">24</div>
             </div>
           </div>
           <div className="element">
             <div className="title">THU</div>
             <div className="subcontainer">
-              <img src={sunny_icon} className="icon" alt=" "></img>
+              <img src={thunderstorm_icon} className="icon" alt=" "></img>
               <div className="value">18</div>
             </div>
           </div>
