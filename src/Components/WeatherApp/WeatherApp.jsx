@@ -1,7 +1,8 @@
 // asset and styling imports
-import React, { useState } from 'react'
-import './WeatherApp.css'
-import sunny_icon from '../Assets/sunny_icon.png'
+import React, { useState } from 'react';
+import sunny_icon from '../Assets/sunny_icon.png';
+import './WeatherApp.css';
+
 
 export const WeatherApp = () => {
 
@@ -34,31 +35,31 @@ export const WeatherApp = () => {
     temp_low[0].innerHTML = Math.round(data.main.temp_min) + "°C";
     cloudiness[0].innerHTML = Math.round(data.clouds.all) + "%";
 
-    if(data.weather[0].icon == "01d" || data.weather[0].icon  == "01n")
+    if(data.weather[0].icon === "01d" || data.weather[0].icon  === "01n")
     {
       setWicon(sunny_icon);
     }
-    else if(data.weather[0].icon == "02d" || data.weather[0].icon  == "02n")
+    else if(data.weather[0].icon === "02d" || data.weather[0].icon  === "02n")
     {
       setWicon(sunny_icon);
     }
-    else if(data.weather[0].icon == "03d" || data.weather[0].icon  == "03n")
+    else if(data.weather[0].icon === "03d" || data.weather[0].icon  === "03n")
     {
       setWicon(sunny_icon);
     }
-    else if(data.weather[0].icon == "04d" || data.weather[0].icon  == "04n")
+    else if(data.weather[0].icon === "04d" || data.weather[0].icon  === "04n")
     {
       setWicon(sunny_icon);
     }
-    else if(data.weather[0].icon == "09d" || data.weather[0].icon  == "09n")
+    else if(data.weather[0].icon === "09d" || data.weather[0].icon  === "09n")
     {
       setWicon(sunny_icon);
     }
-    else if(data.weather[0].icon == "10d" || data.weather[0].icon  == "10n")
+    else if(data.weather[0].icon === "10d" || data.weather[0].icon  === "10n")
     {
       setWicon(sunny_icon);
     }
-    else if(data.weather[0].icon == "13d" || data.weather[0].icon  == "13n")
+    else if(data.weather[0].icon === "13d" || data.weather[0].icon  === "13n")
     {
       setWicon(sunny_icon);    }
     else
@@ -81,7 +82,7 @@ export const WeatherApp = () => {
       <div className="bottom-container">
         <div className="current-temp">22</div>
         <div className="feels-like">Feels like 21&deg;</div>
-        <img src="Assets/sunny_icon.png" className="main-weather-icon"></img>
+        <img src={sunny_icon} className="main-weather-icon" alt=" "></img>
         <div className="current-weather">Partly Cloudy</div>
         <div className="min-max-container">
           <div className="min-max">High: 24&deg;</div>
@@ -108,35 +109,35 @@ export const WeatherApp = () => {
           <div className="element">
             <div className="title">TOM</div>
             <div className="subcontainer">
-              <img src={sunny_icon} className="icon"></img>
+              <img src={sunny_icon} className="icon" alt=" "></img>
               <div className="value">22</div>
             </div>
           </div>
           <div className="element">
             <div className="title">MON</div>
             <div className="subcontainer">
-              <img src="Assets/sunny_icon.png" className="icon"></img>
+              <img src={sunny_icon} className="icon" alt=" "></img>
               <div className="value">14</div>
             </div>
           </div>
           <div className="element">
             <div className="title">TUE</div>
             <div className="subcontainer">
-              <img src="Assets/sunny_icon.png" className="icon"></img>
+              <img src={sunny_icon} className="icon" alt=" "></img>
               <div className="value">19</div>
             </div>
           </div>
           <div className="element">
             <div className="title">WED</div>
             <div className="subcontainer">
-              <img src={require("")} className="icon"></img>
+              <img src={sunny_icon} className="icon" alt=" "></img>
               <div className="value">24</div>
             </div>
           </div>
           <div className="element">
             <div className="title">THU</div>
             <div className="subcontainer">
-              <img src="Assets/sunny_icon.png" className="icon"></img>
+              <img src={sunny_icon} className="icon" alt=" "></img>
               <div className="value">18</div>
             </div>
           </div>
