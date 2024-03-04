@@ -21,7 +21,28 @@ const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
 const city = "Austria";
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
+const SearchField = () => {
+  return (
+    <input type="text" placeholder="Enter city name..."/>
+  )
+}
+
+const SearchIcon = ({ onClick }) => {
+  return (
+    <div onClick={onClick} style={{ cursor: 'pointer' }}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path fill="none" d="M0 0h24v24H0V0z"/>
+        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+      </svg>
+    </div>
+  );
+}
+
 export const WeatherApp = () => {
+  const [showSearch, setShowSearch] = useState(false);
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+  }
   const [wicon, setWicon] = useState(sunny_icon);
   const [data, setData] = useState(null);
 
@@ -87,17 +108,10 @@ useEffect(() => {
   }
   return (
     <div className="container">
-      <div className="top-container">
-        <svg className="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 7C20.75 7.41421 20.4142 7.75 20 7.75L4 7.75C3.58579 7.75 3.25 7.41421 3.25 7C3.25 6.58579 3.58579 6.25 4 6.25L20 6.25C20.4142 6.25 20.75 6.58579 20.75 7Z" fill="#3d3b40"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 12C20.75 12.4142 20.4142 12.75 20 12.75L4 12.75C3.58579 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58579 11.25 4 11.25L20 11.25C20.4142 11.25 20.75 11.5858 20.75 12Z" fill="#3d3b40"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 17C20.75 17.4142 20.4142 17.75 20 17.75L4 17.75C3.58579 17.75 3.25 17.4142 3.25 17C3.25 16.5858 3.58579 16.25 4 16.25L20 16.25C20.4142 16.25 20.75 16.5858 20.75 17Z" fill="#3d3b40"></path> </g></svg>        
-        <div className="location-container">
-          <div className="subcontainer">
-            <svg className="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.398 19.804C13.881 19.0348 19 16.0163 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 16.0163 10.119 19.0348 11.602 19.804C11.8548 19.9351 12.1452 19.9351 12.398 19.804ZM12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" fill="#3D3B40"></path> </g></svg>
-            <div className="title">Location</div>
-          </div>
-          <div className="date">Saturday, February 24, 2024</div>
+      <div className="search-container">
+        <SearchIcon onClick={toggleSearch} />
+        {showSearch && <SearchField />}
         </div>
-        <svg className="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#3D3B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-      </div>
       <div className="bottom-container">
         <div className="current-temp-container">
           <div className="current-temp">22</div>
