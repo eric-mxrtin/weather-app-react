@@ -108,10 +108,10 @@ useEffect(() => {
   }
   return (
     <div className="container">
-      <div className="search-container">
-        <SearchIcon onClick={toggleSearch} />
-        {showSearch && <SearchField />}
-        </div>
+      <SearchIcon onClick={toggleSearch} />
+      <div className={`search-container ${showSearch ? 'active' : ''}`}>
+        <SearchField />
+      </div>
       <div className="bottom-container">
         <div className="current-temp-container">
           <div className="current-temp">22</div>
@@ -186,5 +186,5 @@ useEffect(() => {
       <div className="blur-circle top"></div>
       <div className="blur-circle bottom"></div>
     </div>
-  )
+  );
 }
