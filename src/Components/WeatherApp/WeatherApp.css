@@ -3,6 +3,18 @@ div
   margin: none;
 }
 
+input {
+  font-weight: 600;
+  font-size: 18px; 
+  border: none;
+  background: none;
+}
+
+input:focus {
+  color: #3D3B40;
+  outline: none;
+}
+
 .container {
   width: 430px;
   /* 932 */
@@ -24,15 +36,17 @@ div
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 50px;
 }
 
 .top-container .icon{
   height: 36px;
   width: 36px;
+  margin-top: -20px;
 }
 
 .location-container {
+  margin-top: 90px;
   background-color: white;
   padding: 6px 10px;
   border-radius: 10px;
@@ -50,6 +64,7 @@ div
 
 .location-container .subcontainer .icon 
 {
+  margin: 0;
   height: 24px;
   width: 24px;
 }
@@ -73,6 +88,7 @@ div
 }
 
 .current-temp-container {
+  margin-top: 40px;
   position: relative;
 }
 
@@ -96,7 +112,7 @@ div
 }
 
 .current-weather {
-  margin-top: 30px;
+  margin-top: 50px;
   font-size: 44px;
   font-weight: 800;
 }
@@ -106,7 +122,8 @@ div
   flex-direction: row;
   gap: 24px;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-top: 5px;
+  margin-bottom: 40px;
 }
 
 .min-max 
@@ -154,7 +171,7 @@ div
   flex-direction: row;
   background-color: rgba(227, 225, 217, 45%);
   border-radius: 20px;
-  margin: 45px 20px;
+  margin-top: 26px;
   padding: 10px;
 }
 
@@ -230,6 +247,15 @@ div
   font-size: 20px;
   font-weight: 400;
   z-index: 100;
+}
+
+.search-input {
+  opacity: 0; /* Initially hide the input */
+  transition: opacity 0.3s ease-in; /* Add transition effect */
+}
+
+.search-input.active {
+  opacity: 1; /* Show the input when active */
 }
 
 .search-icon {
