@@ -184,6 +184,7 @@ useEffect(() => {
          </div>
       </div>
       <div className="blur-circle top"></div>
+      <div className="blur-circle middle"></div>
       <div className="blur-circle bottom"></div>
     </div>
   );

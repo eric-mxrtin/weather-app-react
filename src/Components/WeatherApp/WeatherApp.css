@@ -280,7 +280,8 @@ input:focus {
 .blur-circle
 {
   position: absolute;
-  background-color: red;
+  background-color: white;
+  opacity: 0.9;
   height: 350px;
   width: 350px;
   border-radius: 50%;
@@ -288,15 +289,21 @@ input:focus {
   z-index: -1;
 }
 
-.blur-circle .top {
+.blur-circle.top {
 
-  top: 300px;
-  left: 100px;
+  top: -40px;
+  left: -175px;
 }
 
-.blur-circle .bottom {
-  bottom: 100px;
-  right: 100px;
+.blur-circle.middle {
+
+  top: 400px;
+  left: -150px;
+}
+
+.blur-circle.bottom {
+  bottom: -100px;
+  right: -100px;
 }
 
 
