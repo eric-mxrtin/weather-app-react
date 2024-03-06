@@ -29,6 +29,7 @@ input:focus {
   text-align: center;
   position: relative;
   overflow: hidden;
+  z-index: -2;
 }
 
 .top-container {
@@ -62,7 +63,7 @@ input:focus {
   align-items: center;
 }
 
-.location-container .subcontainer .icon 
+.pin-icon
 {
   margin: 0;
   height: 24px;
@@ -250,11 +251,13 @@ input:focus {
 }
 
 .search-input {
+  margin: none;
+  display: flex;
   opacity: 0; /* Initially hide the input */
   transition: opacity 0.3s ease-in; /* Add transition effect */
 }
 
-.search-input.active {
+.search-input .active {
   opacity: 1; /* Show the input when active */
 }
 
@@ -269,19 +272,33 @@ input:focus {
   cursor: pointer;
 }
 
+.search-field 
+{
+
+}
+
 .blur-circle
 {
-  background-color: white;
+  position: absolute;
+  background-color: red;
   height: 350px;
   width: 350px;
-  position: absolute;
-  z-index: 0;
-  top: 0px;
-  left: 0px;
-  border-radius: 100%;
+  border-radius: 50%;
   filter: blur(5rem);
-  display: none;
+  z-index: -1;
 }
+
+.blur-circle .top {
+
+  top: 300px;
+  left: 100px;
+}
+
+.blur-circle .bottom {
+  bottom: 100px;
+  right: 100px;
+}
+
 
 .weather-image{
   margin-top: 29px;
