@@ -15,19 +15,23 @@ input:focus {
   outline: none;
 }
 
+.body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   width: 430px;
   /* 932 */
   height: 932px; 
-  margin: auto;
-  margin-top: 75px;
   border-radius: 12px;
   background-color: rgb(242,239,229);
   position: relative;
   color: #3D3B40;
   background-color: #F2EFE5;
   text-align: center;
-  position: relative;
   overflow: hidden;
   z-index: -2;
 }
@@ -257,7 +261,7 @@ input:focus {
   transition: opacity 0.3s ease-in; /* Add transition effect */
 }
 
-.search-input .active {
+.search-input.active {
   opacity: 1; /* Show the input when active */
 }
 
@@ -270,11 +274,6 @@ input:focus {
   background: #ebfffc;
   border-radius: 100%;
   cursor: pointer;
-}
-
-.search-field 
-{
-
 }
 
 .blur-circle

@@ -3,8 +3,11 @@ import {WeatherApp} from './Components/WeatherApp/WeatherApp';
 
 function App() {
   return (
-    <div className="App">
-      <WeatherApp/>
+    <div>
+      <div className="bg-color"></div>
+      <div className="App">
+        <WeatherApp/>
+      </div>
     </div>
   );
 }
