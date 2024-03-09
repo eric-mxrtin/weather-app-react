@@ -20,6 +20,8 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: -100;
+  pointer-events: auto;
 }
 
 .container {

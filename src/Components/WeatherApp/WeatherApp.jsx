@@ -89,6 +89,7 @@ useEffect(() => {
   }
 
   const toggleSearchActive = () => {
+    console.log('Pressed');
     setSearchActive(!searchActive);
   };
 
