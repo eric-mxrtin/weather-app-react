@@ -19,17 +19,21 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Paris";
+const city = "Mississauga";
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 const test = `https://api.openweathermap.org/data/2.5/weather?q=Mississauga&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
 export const WeatherApp = () => {
+  const [data, setData] = useState(null);
   const [wicon, setWicon] = useState(sunny_icon);
-  const [currentWeather, setCurrentWeather] = useState('NULL');
+  const [currentWeather, setCurrentWeather] = useState('');
   const [temperature,setTemperature] = useState('');
   const [tempLow,setTempLow] = useState('');
   const [tempHigh,setTempHigh] = useState('');
-  const [data, setData] = useState(null);
+  const [precipitation, setPrecipitation] = useState('');
+  const [humidity, setHumidity] = useState('');
+  const [windSpeed, setWindSpeed] = useState('');
+
   const [searchActive, setSearchActive] = useState(false);
 
   useEffect(() => {
@@ -95,10 +99,10 @@ useEffect(() => {
           setWicon(main_cloudy);
           break;
       }
-    }
     setTemperature(Math.round(data.main.temp));
     setTempLow(Math.round(data.main.temp_min));
     setTempHigh(Math.round(data.main.temp_max));
+    }
   }, [data]);
 
   if (!data) {
