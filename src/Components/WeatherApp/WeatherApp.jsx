@@ -19,11 +19,16 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Los Angeles";
+const city = "Paris";
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
+const test = `https://api.openweathermap.org/data/2.5/weather?q=Mississauga&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
 export const WeatherApp = () => {
   const [wicon, setWicon] = useState(sunny_icon);
+  const [currentWeather, setCurrentWeather] = useState('NULL');
+  const [temperature,setTemperature] = useState('');
+  const [tempLow,setTempLow] = useState('');
+  const [tempHigh,setTempHigh] = useState('');
   const [data, setData] = useState(null);
   const [searchActive, setSearchActive] = useState(false);
 
@@ -47,41 +52,53 @@ useEffect(() => {
       switch (iconCode) {
         case "01d":
         case "01n":
+          setCurrentWeather("Sunny");
           setWicon(main_sunny);
           break;
         case "02d":
         case "02n":
+          setCurrentWeather("Partly Cloudy");
           setWicon(main_partly_cloudy);
           break;
         case "03d":
         case "03n":
+          setCurrentWeather("Cloudy");
           setWicon(main_cloudy);
           break;
         case "04d":
         case "04n":
+          setCurrentWeather("Partly Cloudy");
           setWicon(main_partly_cloudy);
           break;
         case "09d":
         case "09n":
+          setCurrentWeather("Shower Rain");
           setWicon(main_shower_rain);
           break;
         case "10d":
         case "10n":
+          setCurrentWeather("Rainy");
           setWicon(main_rain);
           break;
         case "11d":
         case "11n":
+          setCurrentWeather("Thunderstorm");
           setWicon(main_thunderstorm);
           break;
         case "13d":
         case "13n":
+          setCurrentWeather("Snowing");
           setWicon(main_snow);
           break;
         default:
+          setCurrentWeather("Cloudy");
           setWicon(main_cloudy);
           break;
       }
     }
+    setTemperature(Math.round(data.main.temp));
+    setTempLow(Math.round(data.main.temp_min));
+    setTempHigh(Math.round(data.main.temp_max));
   }, [data]);
 
   if (!data) {
@@ -116,14 +133,14 @@ useEffect(() => {
         </div>
         <div className="bottom-container">
           <div className="current-temp-container">
-            <div className="current-temp">22</div>
+            <div className="current-temp">{temperature}</div>
             <img src={wicon} className="main-weather-icon" alt=" "></img>
           </div>
           <div className="feels-like">Feels like 21&deg;</div>
-          <div className="current-weather">Partly Cloudy</div>
+          <div className="current-weather">{currentWeather}</div>
           <div className="min-max-container">
-            <div className="min-max">High: 24&deg;</div>
-            <div className="min-max">Low: 19&deg;</div>
+            <div className="min-max">High: {tempHigh}&deg;</div>
+            <div className="min-max">Low: {tempLow}&deg;</div>
           </div>
           <div className="stats-container">
             <div className="stats-element">

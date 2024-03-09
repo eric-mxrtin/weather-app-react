@@ -35,7 +35,7 @@ input:focus {
   background-color: #F2EFE5;
   text-align: center;
   overflow: hidden;
-  z-index: -2;
+  z-index: 10;
 }
 
 .top-container {
@@ -47,6 +47,7 @@ input:focus {
 }
 
 .top-container .icon{
+  cursor: pointer;
   height: 36px;
   width: 36px;
   margin-top: -20px;
@@ -260,23 +261,17 @@ input:focus {
   margin: none;
   display: flex;
   opacity: 0; /* Initially hide the input */
-  transition: opacity 0.3s ease-in; /* Add transition effect */
+  transition: opacity 5s ease-in; /* Add transition effect */
 }
 
 .search-input.active {
   opacity: 1; /* Show the input when active */
 }
 
-.search-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 78px;
-  height: 78px;
-  background: #ebfffc;
-  border-radius: 100%;
-  cursor: pointer;
+.search-input.active.input {
+  width: auto;
 }
+
 
 .blur-circle
 {
