@@ -19,7 +19,7 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Belfort";
+const city = "Vietnam";
 const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
@@ -177,7 +177,9 @@ useEffect(() => {
         <div className="bottom-container">
           <div className="current-temp-container">
             <div className="current-temp">{temperature}</div>
-            <img src={wicon} className="main-weather-icon" alt=" "></img>
+            <div className="main-weather-icon-formatter">
+              <img src={wicon} className="main-weather-icon" alt=" "></img>
+            </div>
           </div>
           <div className="feels-like">Feels like {feelsLike}&deg;</div>
           <div className="current-weather">{currentWeather}</div>
