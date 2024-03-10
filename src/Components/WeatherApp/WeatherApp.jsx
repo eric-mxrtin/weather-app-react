@@ -128,7 +128,6 @@ useEffect(() => {
       tempForecastTemperatures.push(Math.round(forecastData.list[i].main.temp_max));
     }
     setForecastTemperatures(tempForecastTemperatures);
-    }
 
     const tempForecastWeathers = [];
     for (let i = 0; i < 5; i++) {
@@ -170,6 +169,7 @@ useEffect(() => {
       }
     }
     setForecastWeathers(tempForecastWeathers);
+    }
 
   }, [data, forecastData]);
 
@@ -251,35 +251,35 @@ useEffect(() => {
             <div className="element">
               <div className="title">{fiveDayForecast[0]}</div>
               <div className="subcontainer">
-                <img src={sunny_icon} className="icon" alt=" "></img>
+                <img src={forecastWeathers[0]} className="icon" alt=" "></img>
                 <div className="value">{forecastTemperatures[0]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[1]}</div>
               <div className="subcontainer">
-                <img src={cloudy_icon} className="icon" alt=" "></img>
+                <img src={forecastWeathers[1]} className="icon" alt=" "></img>
                 <div className="value">{forecastTemperatures[1]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[2]}</div>
               <div className="subcontainer">
-                <img src={rain_icon} className="icon" alt=" "></img>
+                <img src={forecastWeathers[2]} className="icon" alt=" "></img>
                 <div className="value">{forecastTemperatures[2]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[3]}</div>
               <div className="subcontainer">
-                <img src={shower_rain_icon} className="icon" alt=" "></img>
+                <img src={forecastWeathers[3]} className="icon" alt=" "></img>
                 <div className="value">{forecastTemperatures[3]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[4]}</div>
               <div className="subcontainer">
-                <img src={thunderstorm_icon} className="icon" alt=" "></img>
+                <img src={forecastWeathers[4]} className="icon" alt=" "></img>
                 <div className="value">{forecastTemperatures[4]}</div>
               </div>
             </div>
