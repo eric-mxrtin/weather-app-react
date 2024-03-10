@@ -123,7 +123,10 @@ useEffect(() => {
     setfeelsLike(Math.round(data.main.feels_like));
 
     const tempForecastTemperatures = [];
-
+    for (let i = 0; i < 5; i++) {
+      tempForecastTemperatures.push(Math.round(forecastData.list[i].main.temp_max));
+    }
+    setForecastTemperatures(tempForecastTemperatures);
     }
   }, [data, forecastData]);
 
