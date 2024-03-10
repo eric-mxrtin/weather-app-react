@@ -19,7 +19,7 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Los Angeles";
+const city = "Belfort";
 const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
@@ -35,6 +35,7 @@ export const WeatherApp = () => {
   const [humidity, setHumidity] = useState('');
   const [windSpeed, setWindSpeed] = useState('');
   const [feelsLike, setfeelsLike] = useState('');
+  const [forecastTemperatures, setForecastTemperatures] = useState([]);
 
   const [searchActive, setSearchActive] = useState(false);
 
@@ -61,7 +62,7 @@ export const WeatherApp = () => {
   }, []);
 
 useEffect(() => {
-    if (data) {
+    if (data && forecastData) {
       setPrecipitation("--");
       const iconCode = data.weather[0].icon;
       switch (iconCode) {
@@ -120,10 +121,13 @@ useEffect(() => {
     setHumidity(Math.round(data.main.humidity));
     setWindSpeed(Math.round(data.wind.speed));
     setfeelsLike(Math.round(data.main.feels_like));
-    }
-  }, [data]);
 
-  if (!data) {
+    const tempForecastTemperatures = [];
+
+    }
+  }, [data, forecastData]);
+
+  if (!data || !forecastData) {
     return <div>Loading...</div>;
   }
 
@@ -132,13 +136,17 @@ useEffect(() => {
     setSearchActive(!searchActive);
   };
 
+  const today = new Date();
+  const fullDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const formattedToday = `${fullDaysOfWeek[today.getDay()]}, ${monthsOfYear[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+
   const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
   const currentDayIndex = new Date().getDay();
 
   const fiveDayForecast = [];
   for (let i = 1; i <=5; i++) {
     const nextDayName = daysOfWeek[(currentDayIndex + i) % 7];
-    console.log(nextDayName);
     fiveDayForecast.push(nextDayName);
   }
 
@@ -159,7 +167,7 @@ useEffect(() => {
                 <div className="title">Location</div>
             </div>
             )}
-            <div className="date">Saturday, February 24, 2024</div>
+            <div className="date">{formattedToday}</div>
           </div>
           <svg className="icon" onClick={toggleSearchActive} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#3D3B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
         </div>
@@ -196,35 +204,35 @@ useEffect(() => {
               <div className="title">{fiveDayForecast[0]}</div>
               <div className="subcontainer">
                 <img src={sunny_icon} className="icon" alt=" "></img>
-                <div className="value">22</div>
+                <div className="value">{forecastTemperatures[0]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[1]}</div>
               <div className="subcontainer">
                 <img src={cloudy_icon} className="icon" alt=" "></img>
-                <div className="value">14</div>
+                <div className="value">{forecastTemperatures[1]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[2]}</div>
               <div className="subcontainer">
                 <img src={rain_icon} className="icon" alt=" "></img>
-                <div className="value">19</div>
+                <div className="value">{forecastTemperatures[2]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[3]}</div>
               <div className="subcontainer">
                 <img src={shower_rain_icon} className="icon" alt=" "></img>
-                <div className="value">24</div>
+                <div className="value">{forecastTemperatures[3]}</div>
               </div>
             </div>
             <div className="element">
               <div className="title">{fiveDayForecast[4]}</div>
               <div className="subcontainer">
                 <img src={thunderstorm_icon} className="icon" alt=" "></img>
-                <div className="value">18</div>
+                <div className="value">{forecastTemperatures[4]}</div>
               </div>
             </div>
           </div>
