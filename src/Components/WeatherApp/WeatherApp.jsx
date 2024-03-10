@@ -19,7 +19,7 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Mississauga";
+const city = "Los Angeles";
 const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
@@ -123,15 +123,55 @@ useEffect(() => {
     setWindSpeed(Math.round(data.wind.speed));
     setfeelsLike(Math.round(data.main.feels_like));
 
+    // iterate through the five days an index of 0 that increases by 8 until 40
     const tempForecastTemperatures = [];
-    for (let i = 0; i < 5; i++) {
-      tempForecastTemperatures.push(Math.round(forecastData.list[i].main.temp_max));
+    const tempForecastWeatherCodes = [];
+    for (let i = 0; i < 40; i += 8){
+      let dailyMax = 0;
+      let dailyWeather = [];
+      for (let j = 0; j < 8; j++) {
+      // for each day, iterate 8 times across each 3-hour interval and record the maximum temperature
+        if (forecastData.list[i + j].main.temp_max > dailyMax){
+          dailyMax = forecastData.list[i + j].main.temp_max;
+        }
+        // also, populate an array of the weather conditions for the day, create an iconCode for the day based off maximum in this array
+        let iconCode = forecastData.list[i + j].weather[0].icon;
+        dailyWeather.push(iconCode)
+      }
+      // push each maximum temperature into tempForecastTemperatures array
+      tempForecastTemperatures.push(Math.round(dailyMax));
+
+      const countMap = {};    
+      dailyWeather.forEach(item => {
+        countMap[item] = (countMap[item] || 0) + 1;
+      });
+      let majorityCount = 0;
+      let majorityElement = null;
+      let isTie = false;
+      
+      for (const item in countMap) {
+          if (countMap[item] > majorityCount) {
+              majorityCount = countMap[item];
+              majorityElement = item;
+              isTie = false;
+          } else if (countMap[item] === majorityCount) {
+              isTie = true;
+          }
+      }
+      
+      if (!isTie) {
+        tempForecastWeatherCodes.push(majorityElement);
+      } else {
+        // if there is a tie, take the afternoon weather
+        tempForecastWeatherCodes.push(forecastData.list[5].main.temp_max);
+      }
+      // using a switch for iconCode, populate the tempForecastWeathers array
     }
     setForecastTemperatures(tempForecastTemperatures);
-
     const tempForecastWeathers = [];
+
     for (let i = 0; i < 5; i++) {
-      const iconCode = forecastData.list[i].weather[0].icon;
+      const iconCode = tempForecastWeatherCodes[i];
       switch (iconCode) {
         case "01d":
         case "01n":
@@ -169,8 +209,7 @@ useEffect(() => {
       }
     }
     setForecastWeathers(tempForecastWeathers);
-    }
-
+  }
   }, [data, forecastData]);
 
   if (!data || !forecastData) {
