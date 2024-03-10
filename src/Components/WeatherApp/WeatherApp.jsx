@@ -19,12 +19,13 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Mississauga";
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
-const test = `https://api.openweathermap.org/data/2.5/weather?q=Mississauga&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
+const city = "Los Angeles";
+const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
+const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
 export const WeatherApp = () => {
   const [data, setData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const [wicon, setWicon] = useState(sunny_icon);
   const [currentWeather, setCurrentWeather] = useState('');
   const [temperature,setTemperature] = useState('');
@@ -40,9 +41,17 @@ export const WeatherApp = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(currentUrl);
         const jsonData = await response.json();
         setData(jsonData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+
+      try {
+        const forecastResponse = await fetch(forecastUrl);
+        const jsonForecastData = await forecastResponse.json();
+        setForecastData(jsonForecastData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -123,6 +132,16 @@ useEffect(() => {
     setSearchActive(!searchActive);
   };
 
+  const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+  const currentDayIndex = new Date().getDay();
+
+  const fiveDayForecast = [];
+  for (let i = 1; i <=5; i++) {
+    const nextDayName = daysOfWeek[(currentDayIndex + i) % 7];
+    console.log(nextDayName);
+    fiveDayForecast.push(nextDayName);
+  }
+
   return (
     <div className="body">
       <div className="container">
@@ -174,35 +193,35 @@ useEffect(() => {
           </div>
           <div className="forecast-container">
             <div className="element">
-              <div className="title">TOM</div>
+              <div className="title">{fiveDayForecast[0]}</div>
               <div className="subcontainer">
                 <img src={sunny_icon} className="icon" alt=" "></img>
                 <div className="value">22</div>
               </div>
             </div>
             <div className="element">
-              <div className="title">MON</div>
+              <div className="title">{fiveDayForecast[1]}</div>
               <div className="subcontainer">
                 <img src={cloudy_icon} className="icon" alt=" "></img>
                 <div className="value">14</div>
               </div>
             </div>
             <div className="element">
-              <div className="title">TUE</div>
+              <div className="title">{fiveDayForecast[2]}</div>
               <div className="subcontainer">
                 <img src={rain_icon} className="icon" alt=" "></img>
                 <div className="value">19</div>
               </div>
             </div>
             <div className="element">
-              <div className="title">WED</div>
+              <div className="title">{fiveDayForecast[3]}</div>
               <div className="subcontainer">
                 <img src={shower_rain_icon} className="icon" alt=" "></img>
                 <div className="value">24</div>
               </div>
             </div>
             <div className="element">
-              <div className="title">THU</div>
+              <div className="title">{fiveDayForecast[4]}</div>
               <div className="subcontainer">
                 <img src={thunderstorm_icon} className="icon" alt=" "></img>
                 <div className="value">18</div>
