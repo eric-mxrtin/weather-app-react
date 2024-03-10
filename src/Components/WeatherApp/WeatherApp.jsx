@@ -19,7 +19,7 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Vietnam";
+const city = "Mississauga";
 const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
@@ -36,6 +36,7 @@ export const WeatherApp = () => {
   const [windSpeed, setWindSpeed] = useState('');
   const [feelsLike, setfeelsLike] = useState('');
   const [forecastTemperatures, setForecastTemperatures] = useState([]);
+  const [forecastWeathers, setForecastWeathers] = useState([]);
 
   const [searchActive, setSearchActive] = useState(false);
 
@@ -128,6 +129,48 @@ useEffect(() => {
     }
     setForecastTemperatures(tempForecastTemperatures);
     }
+
+    const tempForecastWeathers = [];
+    for (let i = 0; i < 5; i++) {
+      const iconCode = forecastData.list[i].weather[0].icon;
+      switch (iconCode) {
+        case "01d":
+        case "01n":
+          tempForecastWeathers.push(sunny_icon);
+          break;
+        case "02d":
+        case "02n":
+        case "04d":
+        case "04n":
+          tempForecastWeathers.push(partly_cloudy_icon);
+          break;
+        case "03d":
+        case "03n":
+          tempForecastWeathers.push(cloudy_icon);
+          break;
+        case "09d":
+        case "09n":
+          tempForecastWeathers.push(shower_rain_icon);
+          break;
+        case "10d":
+        case "10n":
+          tempForecastWeathers.push(rain_icon);
+          break;
+        case "11d":
+        case "11n":
+          tempForecastWeathers.push(thunderstorm_icon);
+          break;
+        case "13d":
+        case "13n":
+          tempForecastWeathers.push(snow_icon);
+          break;
+        default:
+          tempForecastWeathers.push(cloudy_icon);
+          break;
+      }
+    }
+    setForecastWeathers(tempForecastWeathers);
+
   }, [data, forecastData]);
 
   if (!data || !forecastData) {
