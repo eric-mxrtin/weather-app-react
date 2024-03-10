@@ -19,7 +19,7 @@ import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
 const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Las Vegas";
+const city = "Mississauga";
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 const test = `https://api.openweathermap.org/data/2.5/weather?q=Mississauga&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
 
