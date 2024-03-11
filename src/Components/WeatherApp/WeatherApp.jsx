@@ -18,11 +18,6 @@ import main_snow from '../Assets/main_icons/main_snow.png';
 import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
 
-const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
-const city = "Los Angeles";
-const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
-const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
-
 export const WeatherApp = () => {
   const [data, setData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
@@ -38,7 +33,12 @@ export const WeatherApp = () => {
   const [forecastTemperatures, setForecastTemperatures] = useState([]);
   const [forecastWeathers, setForecastWeathers] = useState([]);
 
+  const [city, setCity] = useState("London");
   const [searchActive, setSearchActive] = useState(false);
+
+  const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
+  const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
+  const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +60,7 @@ export const WeatherApp = () => {
     };
 
     fetchData();
-  }, []);
+  }, [city]);
 
 useEffect(() => {
     if (data && forecastData) {
@@ -79,13 +79,10 @@ useEffect(() => {
           break;
         case "03d":
         case "03n":
-          setCurrentWeather("Cloudy");
-          setWicon(main_cloudy);
-          break;
         case "04d":
         case "04n":
-          setCurrentWeather("Partly Cloudy");
-          setWicon(main_partly_cloudy);
+          setCurrentWeather("Cloudy");
+          setWicon(main_cloudy);
           break;
         case "09d":
         case "09n":
@@ -138,6 +135,9 @@ useEffect(() => {
         let iconCode = forecastData.list[i + j].weather[0].icon;
         dailyWeather.push(iconCode)
       }
+      console.log(dailyMax)
+      console.log(dailyWeather)
+      console.log("-------")
       // push each maximum temperature into tempForecastTemperatures array
       tempForecastTemperatures.push(Math.round(dailyMax));
 
@@ -160,7 +160,16 @@ useEffect(() => {
       }
       
       if (!isTie) {
-        tempForecastWeatherCodes.push(majorityElement);
+        if (dailyWeather.includes("11d") || dailyWeather.includes("11n")){
+          tempForecastWeatherCodes.push("11d");
+        } else if (dailyWeather.includes("09d") || dailyWeather.includes("09n")){
+          tempForecastWeatherCodes.push("09d");
+        } else if (dailyWeather.includes("10d") || dailyWeather.includes("10n")){
+          tempForecastWeatherCodes.push("10d");
+        }
+        else {
+          tempForecastWeatherCodes.push(majorityElement);
+        }
       } else {
         // if there is a tie, take the afternoon weather
         tempForecastWeatherCodes.push(forecastData.list[5].main.temp_max);
@@ -179,12 +188,12 @@ useEffect(() => {
           break;
         case "02d":
         case "02n":
-        case "04d":
-        case "04n":
           tempForecastWeathers.push(partly_cloudy_icon);
           break;
         case "03d":
         case "03n":
+        case "04d":
+        case "04n":
           tempForecastWeathers.push(cloudy_icon);
           break;
         case "09d":
@@ -235,6 +244,11 @@ useEffect(() => {
     fiveDayForecast.push(nextDayName);
   }
 
+  const handleSearch = (query) => {
+    setCity(query);
+    setSearchActive(false);
+  };
+
   return (
     <div className="body">
       <div className="container">
@@ -244,12 +258,12 @@ useEffect(() => {
             {searchActive ? (
             <div className={`search-input ${searchActive ? 'active' : ''}`}>
               <svg className="pin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.398 19.804C13.881 19.0348 19 16.0163 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 16.0163 10.119 19.0348 11.602 19.804C11.8548 19.9351 12.1452 19.9351 12.398 19.804ZM12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" fill="#3D3B40"></path> </g></svg>
-              <SearchInput />
+              <SearchInput onSearch={handleSearch}/>
             </div>
             ) : (
               <div className="subcontainer">
                 <svg className="pin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.398 19.804C13.881 19.0348 19 16.0163 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 16.0163 10.119 19.0348 11.602 19.804C11.8548 19.9351 12.1452 19.9351 12.398 19.804ZM12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" fill="#3D3B40"></path> </g></svg>
-                <div className="title">Location</div>
+                <div className="title">{city}</div>
             </div>
             )}
             <div className="date">{formattedToday}</div>
