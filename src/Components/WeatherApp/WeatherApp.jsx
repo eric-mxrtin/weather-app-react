@@ -126,7 +126,8 @@ useEffect(() => {
     for (let i = 0; i < 40; i += 8){
       let dailyMax = 0;
       let dailyWeather = [];
-      for (let j = 0; j < 8; j++) {
+      // only evaluate from 3am to 9pm
+      for (let j = 1; j < 7; j++) {
       // for each day, iterate 8 times across each 3-hour interval and record the maximum temperature
         if (forecastData.list[i + j].main.temp_max > dailyMax){
           dailyMax = forecastData.list[i + j].main.temp_max;

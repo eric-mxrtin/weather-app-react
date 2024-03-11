@@ -1,9 +1,24 @@
 import React, {useState} from 'react';
 
-const SearchInput = () => {
+const SearchInput = ({ onSearch }) => {
+
+  const [query, setQuery] = useState('');
+  const handleSearch = (e) => {
+    e.preventDefault();
+    onSearch(query);
+    setQuery('');
+  }
   return (
-    <input type="text" placeholder="Search City"/>
+    <form onSubmit={handleSearch}>
+      <input 
+        type="text"
+        placeholder="Search City"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <button type="submit">Search</button>
+    </form>
   );
-}
+};
 
 export default SearchInput;
