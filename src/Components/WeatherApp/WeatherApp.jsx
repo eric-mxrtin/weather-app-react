@@ -1,17 +1,18 @@
 // asset and styling imports
 import React, { useState, useEffect } from 'react';
 import clear_icon from '../Assets/forecast_icons/clear.png';
-import cloudy_icon from '../Assets/forecast_icons/cloudy.png';
 import partly_cloudy_icon from '../Assets/forecast_icons/partly_cloudy.png';
 import mostly_cloudy_icon from '../Assets/forecast_icons/mostly_cloudy.png';
-import rain_icon from '../Assets/forecast_icons/rain.png';
+import cloudy_icon from '../Assets/forecast_icons/cloudy.png';
 import shower_rain_icon from '../Assets/forecast_icons/shower_rain.png';
+import rain_icon from '../Assets/forecast_icons/rain.png';
 import thunderstorm_icon from '../Assets/forecast_icons/thunderstorm.png';
 import snow_icon from '../Assets/forecast_icons/snow.png';
 
-import main_sunny from '../Assets/main_icons/main_clear.png';
-import main_cloudy from '../Assets/main_icons/main_cloudy.png';
+import main_clear from '../Assets/main_icons/main_clear.png';
 import main_partly_cloudy from '../Assets/main_icons/main_partly_cloudy.png';
+import main_mostly_cloudy from '../Assets/main_icons/main_mostly_cloudy.png';
+import main_cloudy from '../Assets/main_icons/main_cloudy.png';
 import main_rain from '../Assets/main_icons/main_rain.png';
 import main_shower_rain from '../Assets/main_icons/main_shower_rain.png';
 import main_thunderstorm from '../Assets/main_icons/main_thunderstorm.png';
@@ -71,7 +72,7 @@ useEffect(() => {
         case "01d":
         case "01n":
           setCurrentWeather("Sunny");
-          setWicon(main_sunny);
+          setWicon(main_clear);
           break;
         case "02d":
         case "02n":
@@ -79,7 +80,10 @@ useEffect(() => {
           setWicon(main_partly_cloudy);
           break;
         case "03d":
-        case "03n":
+        case "03n":          
+          setCurrentWeather("Mostly Cloudy");
+          setWicon(main_mostly_cloudy);
+          break;
         case "04d":
         case "04n":
           setCurrentWeather("Cloudy");
@@ -110,8 +114,8 @@ useEffect(() => {
           setPrecipitation(data.snow['1h'] + 'mm');
           break;
         default:
-          setCurrentWeather("Cloudy");
-          setWicon(main_cloudy);
+          setCurrentWeather("Partly Cloudy");
+          setWicon(main_partly_cloudy);
           break;
       }
     setTemperature(Math.round(data.main.temp));
@@ -194,6 +198,7 @@ useEffect(() => {
           break;
         case "03d":
         case "03n":
+          tempForecastWeathers.push(mostly_cloudy_icon);
         case "04d":
         case "04n":
           tempForecastWeathers.push(cloudy_icon);
