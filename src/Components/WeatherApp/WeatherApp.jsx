@@ -1,6 +1,6 @@
 // asset and styling imports
 import React, { useState, useEffect } from 'react';
-import sunny_icon from '../Assets/forecast_icons/sunny.png';
+import sunny_icon from '../Assets/forecast_icons/clear.png';
 import cloudy_icon from '../Assets/forecast_icons/cloudy.png';
 import partly_cloudy_icon from '../Assets/forecast_icons/partly_cloudy.png';
 import rain_icon from '../Assets/forecast_icons/rain.png';
@@ -8,7 +8,7 @@ import shower_rain_icon from '../Assets/forecast_icons/shower_rain.png';
 import thunderstorm_icon from '../Assets/forecast_icons/thunderstorm.png';
 import snow_icon from '../Assets/forecast_icons/snow.png';
 
-import main_sunny from '../Assets/main_icons/main_sunny.png';
+import main_sunny from '../Assets/main_icons/main_clear.png';
 import main_cloudy from '../Assets/main_icons/main_cloudy.png';
 import main_partly_cloudy from '../Assets/main_icons/main_partly_cloudy.png';
 import main_rain from '../Assets/main_icons/main_rain.png';
@@ -86,9 +86,9 @@ useEffect(() => {
           break;
         case "09d":
         case "09n":
-          setCurrentWeather("Shower Rain");
+          setCurrentWeather("Drizzle");
           setWicon(main_shower_rain);
-          setPrecipitation(data.rain['1h'] + 'mm');
+          setPrecipitation('<0.5mm');
           break;
         case "10d":
         case "10n":
