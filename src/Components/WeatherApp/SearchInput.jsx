@@ -16,7 +16,6 @@ const SearchInput = ({ onSearch }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button type="submit">Search</button>
     </form>
   );
 };
