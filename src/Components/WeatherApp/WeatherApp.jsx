@@ -1,8 +1,9 @@
 // asset and styling imports
 import React, { useState, useEffect } from 'react';
-import sunny_icon from '../Assets/forecast_icons/clear.png';
+import clear_icon from '../Assets/forecast_icons/clear.png';
 import cloudy_icon from '../Assets/forecast_icons/cloudy.png';
 import partly_cloudy_icon from '../Assets/forecast_icons/partly_cloudy.png';
+import mostly_cloudy_icon from '../Assets/forecast_icons/mostly_cloudy.png';
 import rain_icon from '../Assets/forecast_icons/rain.png';
 import shower_rain_icon from '../Assets/forecast_icons/shower_rain.png';
 import thunderstorm_icon from '../Assets/forecast_icons/thunderstorm.png';
@@ -21,7 +22,7 @@ import './WeatherApp.css';
 export const WeatherApp = () => {
   const [data, setData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
-  const [wicon, setWicon] = useState(sunny_icon);
+  const [wicon, setWicon] = useState(clear_icon);
   const [currentWeather, setCurrentWeather] = useState('');
   const [temperature,setTemperature] = useState('');
   const [tempLow,setTempLow] = useState('');
@@ -185,7 +186,7 @@ useEffect(() => {
       switch (iconCode) {
         case "01d":
         case "01n":
-          tempForecastWeathers.push(sunny_icon);
+          tempForecastWeathers.push(clear_icon);
           break;
         case "02d":
         case "02n":
