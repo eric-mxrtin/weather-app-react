@@ -92,7 +92,7 @@ input:focus {
 }
 
 .bottom-container {
-  height: 632px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -217,7 +217,7 @@ input:focus {
 }
 
 
-.affirmation-container {
+.affirmation-circle {
   position: absolute;
   bottom: -100px;
   width: 609px;
@@ -226,19 +226,30 @@ input:focus {
   background-color: #3D3B40;
 }
 
-.affirmation-container .subcontainer 
+.affirmation-container 
 {
-  padding-top: 77px;
+  width: 430px;
+  position: absolute;
+  bottom: 0px;
+  height: 170px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
+}
+
+.affirmation-container .subcontainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .affirmation-container .value {
   color: white;
   font-size: 20px;
   font-weight: 500;
+  max-width: 250px;
 }
 
 .affirmation-container .icon {
@@ -269,9 +280,10 @@ input:focus {
 }
 
 .search-container {
-  margin: none;
   display: flex;
-
+  max-width: 147.5px;
+  height: 24px;
+  overflow: clip;
 }
 .search-input {
   opacity: 0;

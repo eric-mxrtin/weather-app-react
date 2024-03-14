@@ -19,7 +19,7 @@ import main_thunderstorm from '../Assets/main_icons/main_thunderstorm.png';
 import main_snow from '../Assets/main_icons/main_snow.png';
 import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
-import affirmations from './affirmations.json';
+import affirmationsData from './affirmations.json';
 
 export const WeatherApp = () => {
   const [data, setData] = useState(null);
@@ -39,7 +39,7 @@ export const WeatherApp = () => {
   const [city, setCity] = useState("Toronto");
   const [searchActive, setSearchActive] = useState(false);
 
-  const [affirmation, setAffirmation] = useState('');
+  const [randomAffirmation, setRandomAffirmation] = useState('You look great today');
 
   const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
   const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
@@ -127,8 +127,6 @@ useEffect(() => {
     setHumidity(Math.round(data.main.humidity));
     setWindSpeed(Math.round(data.wind.speed));
     setfeelsLike(Math.round(data.main.feels_like));
-
-    setAffirmation(affirmations[Math.floor(Math.random() * affirmations.length)]);
 
     // iterate through the five days an index of 0 that increases by 8 until 40
     const tempForecastTemperatures = [];
@@ -259,7 +257,20 @@ useEffect(() => {
   const handleSearch = (query) => {
     setCity(query);
     setSearchActive(false);
+    const affirmation = getRandomAffirmation();
+    setRandomAffirmation(affirmation);
   };
+
+  const getRandomAffirmation = () => {
+    const { affirmations } = affirmationsData;
+    const randomIndex = Math.floor(Math.random() * affirmations.length);
+    return affirmations[randomIndex];
+  }
+
+  const affirmationRefresh = () => {
+    const affirmation = getRandomAffirmation();
+    setRandomAffirmation(affirmation);
+  }
 
   return (
     <div className="body">
@@ -269,11 +280,10 @@ useEffect(() => {
           <div className="location-container">
             {searchActive ? (
             <div className={`search-container`}>
-              <svg className="pin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.398 19.804C13.881 19.0348 19 16.0163 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 16.0163 10.119 19.0348 11.602 19.804C11.8548 19.9351 12.1452 19.9351 12.398 19.804ZM12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" fill="#3D3B40"></path> </g></svg>
               <SearchInput onSearch={handleSearch} className={`search-input ${searchActive ? 'active' : ''}`}/>
             </div>
             ) : (
-              <div className="subcontainer">
+            <div className="subcontainer">
                 <svg className="pin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.398 19.804C13.881 19.0348 19 16.0163 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 16.0163 10.119 19.0348 11.602 19.804C11.8548 19.9351 12.1452 19.9351 12.398 19.804ZM12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" fill="#3D3B40"></path> </g></svg>
                 <div className="title">{city}</div>
             </div>
@@ -349,10 +359,12 @@ useEffect(() => {
               </div>
             </div>
           </div>
+          <div className="affirmation-circle"></div>
           <div className="affirmation-container">
             <div className="subcontainer">
-              <div className="value">{affirmation}</div>
-              <svg className="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 20.5001C16.6944 20.5001 20.5 16.6945 20.5 12.0001C20.5 9.17456 19.1213 6.67103 17 5.1255M13 22.4001L11 20.4001L13 18.4001M12 3.5001C7.30558 3.5001 3.5 7.30568 3.5 12.0001C3.5 14.8256 4.87867 17.3292 7 18.8747M11 5.6001L13 3.6001L11 1.6001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>          </div>
+              <div className="value">{randomAffirmation}.</div>
+              <svg className="icon" onClick={affirmationRefresh} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 20.5001C16.6944 20.5001 20.5 16.6945 20.5 12.0001C20.5 9.17456 19.1213 6.67103 17 5.1255M13 22.4001L11 20.4001L13 18.4001M12 3.5001C7.30558 3.5001 3.5 7.30568 3.5 12.0001C3.5 14.8256 4.87867 17.3292 7 18.8747M11 5.6001L13 3.6001L11 1.6001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>          
+            </div>
           </div>
         </div>
         <div className="blur-circle top"></div>
