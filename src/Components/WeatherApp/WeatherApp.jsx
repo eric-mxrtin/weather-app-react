@@ -19,6 +19,7 @@ import main_thunderstorm from '../Assets/main_icons/main_thunderstorm.png';
 import main_snow from '../Assets/main_icons/main_snow.png';
 import SearchInput from './SearchInput.jsx';
 import './WeatherApp.css';
+import affirmations from './affirmations.json';
 
 export const WeatherApp = () => {
   const [data, setData] = useState(null);
@@ -39,7 +40,6 @@ export const WeatherApp = () => {
   const [searchActive, setSearchActive] = useState(false);
 
   const [affirmation, setAffirmation] = useState('');
-  const affirmationURL = "https://www.affirmations.dev";
 
   const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
   const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
@@ -61,14 +61,6 @@ export const WeatherApp = () => {
         setForecastData(jsonForecastData);
       } catch (error) {
         console.error('Error fetching forecast data: ', error);
-      }
-
-      try {
-        const affirmationResponse = await fetch(affirmationURL);
-        const jsonAffirmation = await affirmationResponse.json();
-        setAffirmation(jsonAffirmation.affirmation);
-      } catch (error) {
-        console.error('Error fetching affirmation: ', error);
       }
     };
 
@@ -135,6 +127,8 @@ useEffect(() => {
     setHumidity(Math.round(data.main.humidity));
     setWindSpeed(Math.round(data.wind.speed));
     setfeelsLike(Math.round(data.main.feels_like));
+
+    setAffirmation(affirmations[Math.floor(Math.random() * affirmations.length)]);
 
     // iterate through the five days an index of 0 that increases by 8 until 40
     const tempForecastTemperatures = [];
@@ -274,9 +268,9 @@ useEffect(() => {
           <svg className="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 7C20.75 7.41421 20.4142 7.75 20 7.75L4 7.75C3.58579 7.75 3.25 7.41421 3.25 7C3.25 6.58579 3.58579 6.25 4 6.25L20 6.25C20.4142 6.25 20.75 6.58579 20.75 7Z" fill="#3d3b40"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 12C20.75 12.4142 20.4142 12.75 20 12.75L4 12.75C3.58579 12.75 3.25 12.4142 3.25 12C3.25 11.5858 3.58579 11.25 4 11.25L20 11.25C20.4142 11.25 20.75 11.5858 20.75 12Z" fill="#3d3b40"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 17C20.75 17.4142 20.4142 17.75 20 17.75L4 17.75C3.58579 17.75 3.25 17.4142 3.25 17C3.25 16.5858 3.58579 16.25 4 16.25L20 16.25C20.4142 16.25 20.75 16.5858 20.75 17Z" fill="#3d3b40"></path> </g></svg>        
           <div className="location-container">
             {searchActive ? (
-            <div className={`search-input ${searchActive ? 'active' : ''}`}>
+            <div className={`search-container`}>
               <svg className="pin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12.398 19.804C13.881 19.0348 19 16.0163 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 16.0163 10.119 19.0348 11.602 19.804C11.8548 19.9351 12.1452 19.9351 12.398 19.804ZM12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z" fill="#3D3B40"></path> </g></svg>
-              <SearchInput onSearch={handleSearch}/>
+              <SearchInput onSearch={handleSearch} className={`search-input ${searchActive ? 'active' : ''}`}/>
             </div>
             ) : (
               <div className="subcontainer">
@@ -357,7 +351,7 @@ useEffect(() => {
           </div>
           <div className="affirmation-container">
             <div className="subcontainer">
-              <div className="value">You look great today.</div>
+              <div className="value">{affirmation}</div>
               <svg className="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 20.5001C16.6944 20.5001 20.5 16.6945 20.5 12.0001C20.5 9.17456 19.1213 6.67103 17 5.1255M13 22.4001L11 20.4001L13 18.4001M12 3.5001C7.30558 3.5001 3.5 7.30568 3.5 12.0001C3.5 14.8256 4.87867 17.3292 7 18.8747M11 5.6001L13 3.6001L11 1.6001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>          </div>
           </div>
         </div>

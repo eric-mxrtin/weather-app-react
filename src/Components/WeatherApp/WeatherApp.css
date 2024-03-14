@@ -268,9 +268,19 @@ input:focus {
   z-index: 100;
 }
 
-.search-input {
+.search-container {
   margin: none;
   display: flex;
+
+}
+.search-input {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; 
+  width: 20px;
+}
+
+.search-input.active {
+  opacity: 1; /* Show the input when active */
 }
 
 .blur-circle
