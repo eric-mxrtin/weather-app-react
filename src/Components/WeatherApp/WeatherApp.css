@@ -280,7 +280,6 @@ input:focus {
 }
 
 .search-container {
-  display: flex;
   max-width: 147.5px;
   height: 24px;
   overflow: clip;
