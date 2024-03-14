@@ -35,8 +35,11 @@ export const WeatherApp = () => {
   const [forecastTemperatures, setForecastTemperatures] = useState([]);
   const [forecastWeathers, setForecastWeathers] = useState([]);
 
-  const [city, setCity] = useState("London");
+  const [city, setCity] = useState("Toronto");
   const [searchActive, setSearchActive] = useState(false);
+
+  const [affirmation, setAffirmation] = useState('');
+  const affirmationURL = "https://www.affirmations.dev";
 
   const api_key="d05c1b85bb5e3f1655de6eb4621044d7";
   const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=Metric&appid=d05c1b85bb5e3f1655de6eb4621044d7`;
@@ -49,7 +52,7 @@ export const WeatherApp = () => {
         const jsonData = await response.json();
         setData(jsonData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching current weather data:', error);
       }
 
       try {
@@ -57,7 +60,15 @@ export const WeatherApp = () => {
         const jsonForecastData = await forecastResponse.json();
         setForecastData(jsonForecastData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching forecast data: ', error);
+      }
+
+      try {
+        const affirmationResponse = await fetch(affirmationURL);
+        const jsonAffirmation = await affirmationResponse.json();
+        setAffirmation(jsonAffirmation.affirmation);
+      } catch (error) {
+        console.error('Error fetching affirmation: ', error);
       }
     };
 
@@ -168,8 +179,8 @@ useEffect(() => {
       if (!isTie) {
         if (dailyWeather.includes("11d") || dailyWeather.includes("11n")){
           tempForecastWeatherCodes.push("11d");
-        } else if (dailyWeather.includes("09d") || dailyWeather.includes("09n")){
-          tempForecastWeatherCodes.push("09d");
+        } else if (dailyWeather.includes("13d") || dailyWeather.includes("13n")){
+          tempForecastWeatherCodes.push("13d");
         } else if (dailyWeather.includes("10d") || dailyWeather.includes("10n")){
           tempForecastWeatherCodes.push("10d");
         }

@@ -271,18 +271,7 @@ input:focus {
 .search-input {
   margin: none;
   display: flex;
-  opacity: 0; /* Initially hide the input */
-  transition: opacity 5s ease-in; /* Add transition effect */
 }
-
-.search-input.active {
-  opacity: 1; /* Show the input when active */
-}
-
-.search-input.active.input {
-  width: auto;
-}
-
 
 .blur-circle
 {
