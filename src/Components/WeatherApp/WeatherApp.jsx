@@ -9,12 +9,17 @@ import rain_icon from '../Assets/forecast_icons/rain.png';
 import thunderstorm_icon from '../Assets/forecast_icons/thunderstorm.png';
 import snow_icon from '../Assets/forecast_icons/snow.png';
 
-import main_clear from '../Assets/main_icons/main_clear.png';
-import main_partly_cloudy from '../Assets/main_icons/main_partly_cloudy.png';
-import main_mostly_cloudy from '../Assets/main_icons/main_mostly_cloudy.png';
-import main_cloudy from '../Assets/main_icons/main_cloudy.png';
+import day_clear from '../Assets/main_icons/day_clear.png';
+import night_clear from '../Assets/main_icons/night_clear.png';
+import day_partly_cloudy from '../Assets/main_icons/day_partly_cloudy.png';
+import night_partly_cloudy from '../Assets/main_icons/night_partly_cloudy.png';
+import day_mostly_cloudy from '../Assets/main_icons/day_mostly_cloudy.png';
+import night_mostly_cloudy from '../Assets/main_icons/night_mostly_cloudy.png';
+import day_cloudy from '../Assets/main_icons/day_cloudy.png';
+import night_cloudy from '../Assets/main_icons/night_cloudy.png';
 import main_rain from '../Assets/main_icons/main_rain.png';
-import main_shower_rain from '../Assets/main_icons/main_shower_rain.png';
+import day_shower_rain from '../Assets/main_icons/day_shower_rain.png';
+import night_shower_rain from '../Assets/main_icons/night_shower_rain.png';
 import main_thunderstorm from '../Assets/main_icons/main_thunderstorm.png';
 import main_snow from '../Assets/main_icons/main_snow.png';
 import SearchInput from './SearchInput.jsx';
@@ -73,29 +78,44 @@ useEffect(() => {
       const iconCode = data.weather[0].icon;
       switch (iconCode) {
         case "01d":
-        case "01n":
-          setCurrentWeather("Sunny");
-          setWicon(main_clear);
+          setCurrentWeather("Clear");
+          setWicon(day_clear);
+          break;
+        case "01n":          
+          setCurrentWeather("Clear");
+          setWicon(night_clear);
           break;
         case "02d":
+          setCurrentWeather("Partly Cloudy");
+          setWicon(day_partly_cloudy);
+          break;
         case "02n":
           setCurrentWeather("Partly Cloudy");
-          setWicon(main_partly_cloudy);
+          setWicon(night_partly_cloudy);
           break;
         case "03d":
+          setCurrentWeather("Mostly Cloudy");
+          setWicon(day_mostly_cloudy);
+          break;
         case "03n":          
           setCurrentWeather("Mostly Cloudy");
-          setWicon(main_mostly_cloudy);
+          setWicon(night_mostly_cloudy);
           break;
         case "04d":
+          setCurrentWeather("Cloudy");
+          setWicon(day_cloudy);
+          break;
         case "04n":
           setCurrentWeather("Cloudy");
-          setWicon(main_cloudy);
+          setWicon(night_cloudy);
           break;
         case "09d":
+          setCurrentWeather("Drizzle");
+          setWicon(day_shower_rain);
+          setPrecipitation('<0.5mm');
         case "09n":
           setCurrentWeather("Drizzle");
-          setWicon(main_shower_rain);
+          setWicon(night_shower_rain);
           setPrecipitation('<0.5mm');
           break;
         case "10d":
@@ -118,7 +138,7 @@ useEffect(() => {
           break;
         default:
           setCurrentWeather("Partly Cloudy");
-          setWicon(main_partly_cloudy);
+          setWicon(day_partly_cloudy);
           break;
       }
     setTemperature(Math.round(data.main.temp));
