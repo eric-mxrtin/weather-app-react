@@ -295,11 +295,13 @@ useEffect(() => {
         <div className="bottom-container">
           <div className="current-temp-container">
             <div className="current-temp">{temperature}</div>
+          </div>
+          <div className="feels-like">
+            Feels like {feelsLike}&deg;
             <div className="main-weather-icon-formatter">
               <img src={wicon} className="main-weather-icon" alt=" "></img>
             </div>
           </div>
-          <div className="feels-like">Feels like {feelsLike}&deg;</div>
           <div className="current-weather">{currentWeather}</div>
           <div className="min-max-container">
             <div className="min-max">High: {tempHigh}&deg;</div>
