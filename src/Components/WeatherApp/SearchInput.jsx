@@ -15,6 +15,9 @@ const SearchInput = ({ onSearch }) => {
         placeholder="Search City"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        style={{
+          width: '200px',
+        }}
       />
     </form>
   );

@@ -243,7 +243,7 @@ useEffect(() => {
   const today = new Date();
   const fullDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const formattedToday = `${fullDaysOfWeek[today.getDay()]}, ${monthsOfYear[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}`;
+  const formattedToday = `${fullDaysOfWeek[today.getDay()]}, ${monthsOfYear[today.getMonth()].substr(0,3)}. ${today.getDate()}, ${today.getFullYear()}`;
 
   const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
   const currentDayIndex = new Date().getDay();
@@ -280,7 +280,7 @@ useEffect(() => {
           <div className="location-container">
             {searchActive ? (
             <div className={`search-container`}>
-              <SearchInput onSearch={handleSearch} className={`search-input ${searchActive ? 'active' : ''}`}/>
+              <SearchInput onSearch={handleSearch}/>
             </div>
             ) : (
             <div className="subcontainer">
