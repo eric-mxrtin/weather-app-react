@@ -17,21 +17,7 @@ input:focus {
   outline: none;
 }
 
-.body {
-  height: 100vh;
-  font-family: Inter, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -100;
-  pointer-events: auto;
-}
-
 .container {
-  width: 430px;
-  /* 932 */
-  height: 932px; 
-  border-radius: 12px;
   background-color: rgb(242,239,229);
   position: relative;
   color: #3D3B40;
@@ -39,6 +25,8 @@ input:focus {
   text-align: center;
   overflow: hidden;
   z-index: 10;
+  width: 100vw;
+  height: 100vh;
 }
 
 .top-container {
@@ -93,7 +81,6 @@ input:focus {
 }
 
 .bottom-container {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
