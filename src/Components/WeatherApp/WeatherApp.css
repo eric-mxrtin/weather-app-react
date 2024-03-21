@@ -18,23 +18,22 @@ input:focus {
 }
 
 .container {
-  background-color: rgb(242,239,229);
-  position: relative;
   color: #3D3B40;
   background-color: #F2EFE5;
-  text-align: center;
   overflow: hidden;
   z-index: 10;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .top-container {
-  height: 100px;
+  width: 100vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 50px;
 }
 
 .top-container .icon{
@@ -47,8 +46,8 @@ input:focus {
 .location-container {
   margin-top: 90px;
   background-color: white;
-  width: 140px;
-  padding: 6px 10px;
+  max-height: 110px;
+  padding: 12px 16px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -64,26 +63,38 @@ input:focus {
 
 .pin-icon
 {
-  margin: 0;
-  height: 24px;
-  width: 24px;
+  margin: 0px;
+  height: 48px
 }
 
 .location-container .subcontainer .title{
   font-weight: 700;
-  font-size: 18px;
+  font-size: 40px;
 }
 
 .location-container .date 
 {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 24px;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .bottom-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .current-temp-container {
@@ -91,7 +102,7 @@ input:focus {
 }
 
 .current-temp {
-  font-size: 170px;
+  font-size: 420px;
   font-weight: 700;
 }
 
@@ -102,7 +113,7 @@ input:focus {
 }
 
 .main-weather-icon {
-  height: 160px;
+  height: 275px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -156,18 +167,17 @@ input:focus {
 }
 
 .stats-element .icon {
-  width: 32px;
-  height: 32px;
+  height: 48px;
 }
 
 .stats-element .value {
   font-weight: 700;
-  font-size: 18;
+  font-size: 26px;
 }
 
 .stats-element .title {
   font-weight: 500;
-  font-size: 9px;
+  font-size: 16px;
 }
 
 .forecast-container {
@@ -207,7 +217,7 @@ input:focus {
 .affirmation-circle {
   position: absolute;
   bottom: -100px;
-  width: 609px;
+  width: 110vw;
   height: 271px;
   border-radius: 50%;
   background-color: #3D3B40;
@@ -218,12 +228,13 @@ input:focus {
   width: 430px;
   position: absolute;
   bottom: 0px;
-  height: 170px;
+  max-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  overflow: clip;
 }
 
 .affirmation-container .subcontainer {
@@ -234,7 +245,7 @@ input:focus {
 
 .affirmation-container .value {
   color: white;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 500;
   max-width: 250px;
 }

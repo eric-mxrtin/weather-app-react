@@ -1,0 +1,97 @@
+/* mobile */
+@media (max-width: 430px) {
+
+  .location-container {
+    max-height: 60px;
+  }
+
+  .pin-icon
+  {
+    height: 24px;
+  }
+
+  .location-container .subcontainer .title{
+    font-size: 18px;
+  }
+
+  .location-container .date 
+  {
+    font-size: 12px;
+  }
+
+  .bottom-container {
+    flex-direction: column;
+  }
+
+  .affirmation-container .value {
+    font-size: 20px;
+  }
+
+  .current-temp {
+    font-size: 170px;
+  }
+
+  .main-weather-icon {
+    height: 160px;
+  }
+  
+  .stats-element .icon {
+    height: 32px;
+  }
+  
+  .stats-element .value {
+    font-size: 18px;
+  }
+  
+  .stats-element .title {
+    font-size: 9px;
+  }
+
+}
+
+/* tablet */
+@media (min-width: 431px) and (max-width: 1024px) {
+
+  .location-container {
+    max-height: 90px;
+  }
+
+  .pin-icon
+  {
+    height: 38px;
+  }
+
+  .location-container .subcontainer .title{
+    font-size: 30px;
+  }
+
+  .location-container .date 
+  {
+    font-size: 18px;
+  }
+
+  .current-temp {
+    font-size: 300px;
+  }
+
+  .main-weather-icon {
+    height: 200px;
+  }
+
+  .stats-element .icon {
+    height: 36px;
+  }
+  
+  .stats-element .value {
+    font-size: 22px;
+  }
+  
+  .stats-element .title {
+    font-size: 14px;
+  }
+}
+
+/* desktop */
+@media (min-width: 1025px) {
+
+}
