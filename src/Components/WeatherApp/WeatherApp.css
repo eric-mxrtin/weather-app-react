@@ -21,12 +21,12 @@ input:focus {
   color: #3D3B40;
   background-color: #F2EFE5;
   overflow: hidden;
-  z-index: 10;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .top-container {
@@ -38,8 +38,7 @@ input:focus {
 
 .top-container .icon{
   cursor: pointer;
-  height: 36px;
-  width: 36px;
+  height: 50px;
   margin-top: -20px;
 }
 
@@ -81,13 +80,12 @@ input:focus {
 .left-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .right-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .bottom-container {
@@ -95,6 +93,7 @@ input:focus {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  gap: 50px;
 }
 
 .current-temp-container {
@@ -121,15 +120,15 @@ input:focus {
 }
 
 .feels-like {
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 500;
+  font-size: 32px;
   margin-top: -30px;
   position: relative;
+  text-align: left;
 }
 
 .current-weather {
-  margin-top: 50px;
-  font-size: 44px;
+  font-size: 100px;
   font-weight: 800;
 }
 
@@ -137,7 +136,6 @@ input:focus {
   display: flex;
   flex-direction: row;
   gap: 24px;
-  justify-content: center;
   margin-top: 5px;
   margin-bottom: 40px;
 }
@@ -150,12 +148,10 @@ input:focus {
 .stats-container {
   background-color: #FFFFFF;
   border-radius: 50px;
-  width: 356px;
+  width: 520px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  flex-basis: 0px;
-  margin: 0px 20px;
   padding: 16px 12px;
   height: auto;
 }
@@ -164,6 +160,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
 }
 
 .stats-element .icon {
@@ -180,13 +177,17 @@ input:focus {
   font-size: 16px;
 }
 
+.forecast-title {
+  font-size: 35px;
+  font-weight: 500;
+}
+
 .forecast-container {
   display: flex;
   gap: 12px;
   flex-direction: row;
   background-color: rgba(227, 225, 217, 45%);
   border-radius: 20px;
-  margin-top: 26px;
   padding: 10px;
 }
 
@@ -197,7 +198,16 @@ input:focus {
   gap: 8px;
 }
 
+.forecast-container .title{
+  font-size: 22px;
+  font-weight: 500;
+}
+
 .forecast-container .subcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   background-color: white;
   border-radius: 15px;
   padding: 12px;
@@ -205,22 +215,23 @@ input:focus {
 
 .forecast-container .subcontainer .value{
   font-weight: 600;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .forecast-container .subcontainer .icon{
   width: auto;
-  height: 28px
+  height: 50px;
 }
 
 
 .affirmation-circle {
   position: absolute;
   bottom: -100px;
-  width: 110vw;
-  height: 271px;
+  width: 100vw;
+  height: 30vh;
   border-radius: 50%;
   background-color: #3D3B40;
+  z-index: 0;
 }
 
 .affirmation-container 
@@ -234,7 +245,6 @@ input:focus {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  overflow: clip;
 }
 
 .affirmation-container .subcontainer {
@@ -247,12 +257,12 @@ input:focus {
   color: white;
   font-size: 35px;
   font-weight: 500;
-  max-width: 250px;
+  max-width: 600px;
 }
 
 .affirmation-container .icon {
-  height: 20px;
-  width: 20px;
+  height: 50px;
+  width: auto;
 }
 
 .top-bar {
@@ -289,13 +299,13 @@ input:focus {
 .blur-circle
 {
   position: absolute;
-  background-color: white;
+  background-color: red;
   opacity: 0.9;
   height: 350px;
   width: 350px;
   border-radius: 50%;
   filter: blur(5rem);
-  z-index: -1;
+  z-index: 0;
 }
 
 .blur-circle.top {

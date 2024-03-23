@@ -302,6 +302,7 @@ useEffect(() => {
   }
 
   return (
+    <>
     <div className="container">
       <div className="top-container">
         {menuActive ? (
@@ -336,13 +337,13 @@ useEffect(() => {
               <img src={wicon} className="main-weather-icon" alt=" "></img>
             </div>
           </div>
-          <div className="current-weather">{currentWeather}</div>
           <div className="min-max-container">
-            <div className="min-max">High: {tempHigh}&deg;</div>
-            <div className="min-max">Low: {tempLow}&deg;</div>
+              <div className="min-max">High: {tempHigh}&deg;</div>
+              <div className="min-max">Low: {tempLow}&deg;</div>
           </div>
         </div>
         <div className="right-container">
+          <div className="current-weather">{currentWeather}</div>
           <div className="stats-container">
             <div className="stats-element">
               <svg className="icon" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="1.25"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17.93 15.745H6.87C4.45 15.745 2.5 13.725 2.5 11.215C2.5 8.72503 4.45 6.68503 6.87 6.68503C7.4 6.68503 7.89999 6.77503 8.35999 6.95503C8.60999 7.04503 8.87001 6.95503 9.01001 6.73503C9.74001 5.49503 11.07 4.65503 12.59 4.65503C14.61 4.65503 16.28 6.11503 16.69 8.06503C16.75 8.33503 16.97 8.47504 17.24 8.41504C17.46 8.36504 17.69 8.34503 17.93 8.34503C19.91 8.34503 21.5 10.005 21.5 12.055C21.51 14.095 19.91 15.745 17.93 15.745Z" stroke="#3D3B40" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M10.51 20.345L12.01 17.745" stroke="#3D3B40" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M14.51 20.345L16.01 17.745" stroke="#3D3B40" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6.51001 20.345L8.01001 17.745" stroke="#3D3B40" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
@@ -360,6 +361,7 @@ useEffect(() => {
               <div className="title">Wind Speed</div>
             </div>
           </div>
+          <div className="forecast-title">5-DAY FORECAST</div>
           <div className="forecast-container">
             <div className="element">
               <div className="title">{fiveDayForecast[0]}</div>
@@ -397,18 +399,19 @@ useEffect(() => {
               </div>
             </div>
           </div>
-    </div>
-    </div>
+      </div>
+      </div>
         <div className="affirmation-circle"></div>
-          <div className="affirmation-container">
-            <div className="subcontainer">
-              <div className="value">{randomAffirmation}.</div>
-              <svg className="icon" onClick={affirmationRefresh} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 20.5001C16.6944 20.5001 20.5 16.6945 20.5 12.0001C20.5 9.17456 19.1213 6.67103 17 5.1255M13 22.4001L11 20.4001L13 18.4001M12 3.5001C7.30558 3.5001 3.5 7.30568 3.5 12.0001C3.5 14.8256 4.87867 17.3292 7 18.8747M11 5.6001L13 3.6001L11 1.6001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>          
-            </div>
+        <div className="affirmation-container">
+          <div className="subcontainer">
+            <div className="value">{randomAffirmation}.</div>
+            <svg className="icon" onClick={affirmationRefresh} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(90)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 20.5001C16.6944 20.5001 20.5 16.6945 20.5 12.0001C20.5 9.17456 19.1213 6.67103 17 5.1255M13 22.4001L11 20.4001L13 18.4001M12 3.5001C7.30558 3.5001 3.5 7.30568 3.5 12.0001C3.5 14.8256 4.87867 17.3292 7 18.8747M11 5.6001L13 3.6001L11 1.6001" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>          
           </div>
+        </div>
         <div className="blur-circle top"></div>
         <div className="blur-circle middle"></div>
         <div className="blur-circle bottom"></div>
   </div>
+  </>
   );
 }
