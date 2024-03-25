@@ -1,11 +1,17 @@
+@media (max-height: 910px) {
+  
+}
+
 /* mobile */
 @media (max-width: 430px) {
+  .container{
+    gap: 120px;
+  }
 
   .top-container .icon{
     height: 36px;
   }
   
-
   .location-container {
     max-height: 60px;
   }
@@ -19,6 +25,11 @@
     font-size: 18px;
   }
 
+  .search-field {
+    font-size: 18px;
+    width: 113px;
+  }
+
   .location-container .date 
   {
     font-size: 12px;
@@ -30,20 +41,31 @@
 
   .right-container {
     align-items: center;
+    gap: 0px;
   }
 
   .stats-container {
     width: 350px;
   }
 
+  .min-max 
+  {
+    font-size: 18px;
+  }
+
+  .min-max-container {
+    margin-bottom: 20px;
+  }
+
   .current-weather {
-    margin-top: 50px;
     font-size: 44px;
+    margin-bottom: 20px;
   }
 
   .bottom-container {
     flex-direction: column;
     gap: 0px;
+    overflow: visible;
   }
 
   .forecast-title {
@@ -116,19 +138,226 @@
     font-size: 20px;
     max-width: 250px;
   }
+
+  .affirmation-container .icon {
+    height: 20px;
+  }
+
+  .affirmation-circle {
+    width: 609px;
+    height: 271px;
+    bottom: -90px
+  }
   
+  .blur-circle.top {
+    top: -40px;
+    left: -175px;
+  }
+  
+  .blur-circle.middle {
+    top: 400px;
+    left: -150px;
+  }
+  
+  .blur-circle.bottom {
+    bottom: -100px;
+    right: -100px;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 939px) {
+  .container {
+    gap: 180px;
+  }
+
+  .top-container .icon{
+    height: 36px;
+  }
+  
+  .location-container {
+    max-height: 60px;
+  }
+
+  .search-field {
+    font-size: 18px;
+    width: 113px;
+  }
+
+  .pin-icon
+  {
+    height: 24px;
+  }
+
+  .location-container .subcontainer .title{
+    font-size: 18px;
+  }
+
+  .location-container .date 
+  {
+    font-size: 12px;
+  }
+
+  .left-container {
+    align-items: center;
+  }
+
+  .right-container {
+    align-items: center;
+  }
+
+  .stats-container {
+    width: 400px;
+  }
+
+  .min-max 
+  {
+    font-size: 22px;
+  }
+
+  .min-max-container {
+    margin-bottom: 30px;
+  }
+
+  .current-weather {
+    font-size: 44px;
+    margin-bottom: 10px;
+  }
+
+  .bottom-container {
+    flex-direction: column;
+    gap: 0px;
+    overflow: visible;
+  }
+
+  .forecast-title {
+    display: none;
+  }
+
+.forecast-container {
+  display: flex;
+  gap: 12px;
+  flex-direction: row;
+  background-color: rgba(227, 225, 217, 45%);
+  border-radius: 20px;
+  margin-top: 26px;
+  padding: 12px;
+}
+
+.forecast-container .element{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.forecast-container .subcontainer {
+  background-color: white;
+  border-radius: 15px;
+  padding: 12px;
+}
+
+.forecast-container .subcontainer .value{
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.forecast-container .subcontainer .icon{
+  width: auto;
+  height: 32px;
+}
+
+  .affirmation-container .value {
+    font-size: 20px;
+  }
+
+  .current-temp {
+    font-size: 200px;
+  }
+
+  .main-weather-icon {
+    height: 160px;
+  }
+
+  .main-weather-icon-formatter {
+    bottom: 45px;
+    right: -20px;
+  }
+
+  .feels-like {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .stats-element .icon {
+    height: 40px;
+  }
+  
+  .stats-element .value {
+    font-size: 24px;
+  }
+  
+  .stats-element .title {
+    font-size: 14px;
+  }
+
+  .affirmation-container .value {
+    font-size: 20px;
+    max-width: 250px;
+  }
+  
+  .affirmation-container .icon {
+    height: 20px;
+  }
+
+  .blur-circle.top {
+    top: -40px;
+    left: -175px;
+  }
+  
+  .blur-circle.middle {
+    top: 400px;
+    left: -150px;
+  }
+  
+  .blur-circle.bottom {
+    bottom: -100px;
+    right: -100px;
+  }
 }
 
 /* tablet */
-@media (min-width: 431px) and (max-width: 1024px) {
+@media (min-width: 940px) and (max-width: 1290px) {
 
   .location-container {
     max-height: 90px;
   }
 
+  .search-field {
+    font-size: 30px;
+    width: 165px;
+  }
+
   .pin-icon
   {
     height: 38px;
+  }
+
+  .feels-like {
+    font-size: 24px;
+  }
+
+  .min-max 
+  {
+    font-size: 20px;
+  }
+  
+  .bottom-container {
+    gap: 80px;
+    overflow: visible;
+  }
+
+  .stats-container {
+    width: 350px;
   }
 
   .location-container .subcontainer .title{
