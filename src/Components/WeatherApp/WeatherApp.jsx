@@ -314,7 +314,7 @@ useEffect(() => {
         <div className="location-container">
           {searchActive ? (
           <div className="search-container">
-            <SearchInput onSearch={handleSearch}/>
+            <SearchInput onSearch={handleSearch} className="search-field"/>
           </div>
           ) : (
           <div className="subcontainer">
@@ -329,13 +329,14 @@ useEffect(() => {
       <div className="bottom-container">
         <div className="left-container">
           <div className="current-temp-container">
-            <div className="current-temp">{temperature}</div>
+            <div className="current-temp">{temperature}
+              <div className="main-weather-icon-formatter">
+                <img src={wicon} className="main-weather-icon" alt=" "></img>
+              </div>
+            </div>
           </div>
           <div className="feels-like">
             Feels like {feelsLike}&deg;
-            <div className="main-weather-icon-formatter">
-              <img src={wicon} className="main-weather-icon" alt=" "></img>
-            </div>
           </div>
           <div className="min-max-container">
               <div className="min-max">High: {tempHigh}&deg;</div>

@@ -23,6 +23,7 @@ input:focus {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  gap: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,6 +35,7 @@ input:focus {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 1;
 }
 
 .top-container .icon{
@@ -77,15 +79,23 @@ input:focus {
   font-size: 24px;
 }
 
+.search-field {
+  font-size: 40px;
+  width: 249px;
+}
+
 .left-container {
   display: flex;
   flex-direction: column;
+  z-index: 1;
 }
 
 .right-container {
   display: flex;
   flex-direction: column;
   align-items: start;
+  z-index: 1;
+  gap: 20px;
 }
 
 .bottom-container {
@@ -93,22 +103,23 @@ input:focus {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  gap: 50px;
+  gap: 200px;
 }
 
 .current-temp-container {
-  margin-top: 40px;
+  margin-top: -140px;
 }
 
 .current-temp {
   font-size: 420px;
   font-weight: 700;
+  position: relative;
 }
 
 .main-weather-icon-formatter {
   position: absolute;
-  right: -65px;
-  bottom: -5px;
+  right: -10px;
+  bottom: 90px;
 }
 
 .main-weather-icon {
@@ -142,7 +153,7 @@ input:focus {
 
 .min-max 
 {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .stats-container {
@@ -180,6 +191,8 @@ input:focus {
 .forecast-title {
   font-size: 35px;
   font-weight: 500;
+  margin-top: 50px;
+  margin-bottom: -20px;
 }
 
 .forecast-container {
@@ -188,7 +201,7 @@ input:focus {
   flex-direction: row;
   background-color: rgba(227, 225, 217, 45%);
   border-radius: 20px;
-  padding: 10px;
+  padding: 12px;
 }
 
 .forecast-container .element{
@@ -226,25 +239,26 @@ input:focus {
 
 .affirmation-circle {
   position: absolute;
-  bottom: -100px;
-  width: 100vw;
-  height: 30vh;
-  border-radius: 50%;
+  bottom: -350px;
+  width: 168vw;
+  height: 572px;
+  border-radius: 100%;
   background-color: #3D3B40;
-  z-index: 0;
+  z-index: 1;
 }
 
 .affirmation-container 
 {
-  width: 430px;
   position: absolute;
-  bottom: 0px;
+  bottom: 80px;
   max-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 10px;
+  z-index: 2;
 }
 
 .affirmation-container .subcontainer {
@@ -261,7 +275,7 @@ input:focus {
 }
 
 .affirmation-container .icon {
-  height: 50px;
+  height: 44px;
   width: auto;
 }
 
@@ -288,18 +302,16 @@ input:focus {
 }
 
 .search-container {
-  max-width: 147.5px;
-  height: 24px;
   overflow: clip;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
 
 .blur-circle
 {
   position: absolute;
-  background-color: red;
+  background-color: white;
   opacity: 0.9;
   height: 350px;
   width: 350px;
@@ -310,19 +322,19 @@ input:focus {
 
 .blur-circle.top {
 
-  top: -40px;
-  left: -175px;
+  top: -100px;
+  left: 350px;
 }
 
 .blur-circle.middle {
 
-  top: 400px;
-  left: -150px;
+  top: 40px;
+  right: 0px;
 }
 
 .blur-circle.bottom {
-  bottom: -100px;
-  right: -100px;
+  bottom: 10px;
+  left: -100px;
 }
 
 

@@ -1,7 +1,3 @@
-@media (max-height: 910px) {
-  
-}
-
 /* mobile */
 @media (max-width: 430px) {
   .container{
@@ -395,7 +391,102 @@
   }
 }
 
-/* desktop */
-@media (min-width: 1025px) {
+@media (max-height: 910px) and (max-width: 430px){
+  .min-max-container {
+    margin: 0px;
+  }
+  .current-weather {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
 
+  .stats-container {
+    width: 220px;
+  }
+
+  .stats-element .icon {
+    height: 18px;
+  }
+  
+  .stats-element .value {
+    font-size: 12px;
+  }
+  
+  .stats-element .title {
+    font-size: 10px;
+  }
+  .affirmation-circle {
+    bottom: -500px;
+    width: 260vw;
+    height: 572px;
+  }
+  
+  .affirmation-container 
+  {
+    position: absolute;
+    bottom: 20px;
+    max-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .affirmation-container .value {
+    font-size: 18px;
+    max-width: 300px;
+  }
+  
+  .affirmation-container .icon {
+    height: 18px;
+  }
+
+  .forecast-container {
+    margin-top: 10px;
+  }
+  
+  .forecast-container .element{
+    gap: 4px;
+  }
+
+  .forecast-container .element .title{
+    font-size: 14px;
+  }
+  
+  .forecast-container .subcontainer {
+    padding: 8px;
+  }
+
+  .forecast-container .subcontainer .value{
+    font-weight: 600;
+    font-size: 18px;
+  }
+  
+  .forecast-container .subcontainer .icon{
+    width: auto;
+    height: 18px;
+  }
+  
+
+}
+
+@media (max-height: 700px) and (max-width: 430px){
+  .affirmation-circle {
+    bottom: -500px;
+    width: 300vw;
+    height: 572px;
+  }
+
+  .affirmation-container .value {
+    font-size: 14px;
+    max-width: 240px;
+  }
+  
+  .affirmation-container .icon {
+    height: 14px;
+  }
 }

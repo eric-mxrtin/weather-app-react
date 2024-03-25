@@ -12,12 +12,10 @@ const SearchInput = ({ onSearch }) => {
     <form onSubmit={handleSearch}>
       <input 
         type="text"
-        placeholder="Search City"
+        placeholder="Search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        style={{
-          width: '200px',
-        }}
+        className="search-field"
       />
     </form>
   );
